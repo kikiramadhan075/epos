@@ -1,7 +1,8 @@
+import 'package:dartz/dartz.dart';
+import 'package:http/http.dart' as http;
 
 import 'package:epos/data/models/response/auth_response_model.dart';
-import 'package:dartz'
-import 'package:http/http.dart' as http;
+import '../../core/constants/variables.dart';
 
 class AuthRemoteDatasource {
   Future<Either<String, AuthResponseModel>> login(
@@ -16,7 +17,7 @@ class AuthRemoteDatasource {
       },
     );
     if (response.statusCode == 200) {
-      return right(AuthResponseModel.fromJson(response.body));
+      return right(AuthResponseModel.fromJson(response.body as Map<String, dynamic>));
     } else {
       return left(response.body);
     }
