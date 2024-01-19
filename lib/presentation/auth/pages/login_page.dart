@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
               state.maybeWhen(
                 orElse: () {},
                 success: (authResponseModel) {
-                  // AuthLocalDatasource().saveAuthData(authResponseModel);
+                  AuthLocalDatasource().saveAuthData(authResponseModel);
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
