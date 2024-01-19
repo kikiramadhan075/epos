@@ -2,6 +2,7 @@ import 'package:epos/data/datasources/auth_local_datasource.dart';
 import 'package:epos/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:epos/presentation/auth/pages/login_page.dart';
 import 'package:epos/presentation/home/bloc/logout/logout_bloc.dart';
+import 'package:epos/presentation/home/pages/home_page.dart';
 import 'package:epos/presentation/home/widgets/nav_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,9 +21,7 @@ class _DashboardPageState extends State<DashboardPage> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    const Center(
-      child: Text('Dashboard'),
-    ),
+    const HomePage(),
     const Center(
       child: Text('Order'),
     ),

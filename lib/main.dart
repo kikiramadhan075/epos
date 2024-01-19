@@ -1,7 +1,9 @@
 import 'package:epos/data/datasources/auth_local_datasource.dart';
 import 'package:epos/data/datasources/auth_remote_datasources.dart';
+import 'package:epos/data/datasources/product_remote_datasource.dart';
 import 'package:epos/presentation/auth/pages/login_page.dart';
 import 'package:epos/presentation/home/bloc/logout/logout_bloc.dart';
+import 'package:epos/presentation/home/bloc/product/product_bloc.dart';
 import 'package:epos/presentation/home/pages/dashboard_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,6 +28,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => LogoutBloc(AuthRemoteDatasource()),
+        ),
+        BlocProvider(
+          create: (context) => ProductBloc(ProductRemoteDatasource())..add(const ProductEvent.fetch()),
         ),
       ],
       child: MaterialApp(
