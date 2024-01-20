@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   badges: ^3.1.2
+  cached_network_image: ^3.3.1
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
   flutter:
@@ -41,16 +42,15 @@ dependencies:
   image_picker: ^1.0.7
   intl: ^0.19.0
   shared_preferences: ^2.2.2
-  cached_network_image: ^3.3.1
+  sqflite: ^2.3.0
 
 dev_dependencies:
-  freezed: ^2.4.6
   build_runner: ^2.4.8
   flutter_gen_runner: ^5.4.0
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-
+  freezed: ^2.4.6
 
 flutter_gen:
   output: lib/core/assets/

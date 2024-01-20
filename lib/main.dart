@@ -30,11 +30,11 @@ class MyApp extends StatelessWidget {
           create: (context) => LogoutBloc(AuthRemoteDatasource()),
         ),
         BlocProvider(
-          create: (context) => ProductBloc(ProductRemoteDatasource())..add(const ProductEvent.fetch()),
+          create: (context) => ProductBloc(ProductRemoteDatasource())..add(const ProductEvent.fetchLocal()),
         ),
       ],
       child: MaterialApp(
-        title: 'Flutter ePOS',
+        title: 'ePOS',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
           useMaterial3: true,
