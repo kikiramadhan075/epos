@@ -1,5 +1,6 @@
 import 'package:epos/core/extensions/build_context_ext.dart';
 import 'package:epos/presentation/home/bloc/product/product_bloc.dart';
+import 'package:epos/presentation/setting/pages/manage_product_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,8 +35,8 @@ class _SettingPageState extends State<SettingPage> {
                 MenuButton(
                   iconPath: Assets.images.manageProduct.path,
                   label: 'Kelola Produk',
-                  onPressed: () => context.push,
-                  isImage: true,
+                  onPressed: () => context.push(const ManageProduct()),
+                  isImage: true
                 ),
                 const SpaceWidth(15.0),
                 MenuButton(

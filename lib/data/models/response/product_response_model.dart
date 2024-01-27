@@ -39,6 +39,7 @@ class Product {
   final int stock;
   final String category;
   final String image;
+  final bool isBestSeller;
   final DateTime? createdAt;
   final DateTime? updatedAt;
 
@@ -50,8 +51,9 @@ class Product {
     required this.stock,
     required this.category,
     required this.image,
-     this.createdAt,
-     this.updatedAt,
+    this.isBestSeller = false, 
+    this.createdAt,
+    this.updatedAt,
   });
 
   factory Product.fromJson(String str) => Product.fromMap(json.decode(str));
@@ -66,6 +68,7 @@ class Product {
         stock: json["stock"],
         category: json["category"],
         image: json["image"] ?? '',
+        isBestSeller: json["is_best_seller"] == 1 ? true : false, 
         // createdAt: DateTime.parse(json["created_at"]),
         // updatedAt: DateTime.parse(json["updated_at"]),
       );
@@ -76,5 +79,6 @@ class Product {
         "stock": stock,
         "category": category,
         "image": image,
+        "is_best_seller": isBestSeller ? 1 : 0,
       };
 }

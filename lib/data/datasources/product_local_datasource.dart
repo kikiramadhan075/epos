@@ -30,7 +30,8 @@ class ProductLocalDatasource {
         price INTEGER,
         stock INTEGER,
         image TEXT,
-        category TEXT
+        category TEXT,
+        is_best_seller INTEGER
       )
     ''');
 
@@ -93,7 +94,7 @@ class ProductLocalDatasource {
   Future<Database> get database async {
     if (_database != null) return _database!;
 
-    _database = await _initDB('pos6.db');
+    _database = await _initDB('pos7.db');
     return _database!;
   }
 
