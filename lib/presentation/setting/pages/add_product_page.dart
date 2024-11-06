@@ -16,7 +16,7 @@ class _AddProductPageState extends State<AddProductPage> {
     nameController = TextEditingController();
     super.initState();
   }
-
+ 
   @override
   void dispose() {
     // TODO: implement dispose
