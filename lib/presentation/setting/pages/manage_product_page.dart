@@ -8,6 +8,7 @@ import '../../home/bloc/product/product_bloc.dart';
 import '../../home/models/product_category.dart';
 import '../../home/models/product_model.dart';
 import '../widgets/menu_product_item.dart';
+import 'add_product_page.dart';
 
 class ManageProduct extends StatefulWidget {
   const ManageProduct({super.key});
@@ -97,9 +98,9 @@ class _ManageProductState extends State<ManageProduct> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Navigator.push(context, MaterialPageRoute(builder: (context) {
-          //   // return const AddProductPage();
-          // }));
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return const AddProductPage();
+          }));
         },
         child: const Icon(Icons.add),
       ),
