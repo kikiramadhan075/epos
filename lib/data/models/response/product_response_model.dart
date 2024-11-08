@@ -42,7 +42,6 @@ class Product {
   final String category;
   final String image;
   final bool isBestSeller;
-  final bool isSync;
   final DateTime? createdAt;
   final DateTime? updatedAt;
 
@@ -55,7 +54,6 @@ class Product {
     required this.category,
     required this.image,
     this.isBestSeller = false, 
-    this.isSync = true,
     this.createdAt,
     this.updatedAt,
   });
@@ -95,7 +93,6 @@ class Product {
     String? category,
     String? image,
     bool? isBestSeller,
-    bool? isSync,
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
@@ -108,7 +105,6 @@ class Product {
       category: category ?? this.category,
       image: image ?? this.image,
       isBestSeller: isBestSeller ?? this.isBestSeller,
-      isSync: isSync ?? this.isSync,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );
