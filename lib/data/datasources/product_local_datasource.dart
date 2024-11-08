@@ -94,7 +94,7 @@ class ProductLocalDatasource {
   Future<Database> get database async {
     if (_database != null) return _database!;
 
-    _database = await _initDB('pos7.db');
+    _database = await _initDB('pos8.db');
     return _database!;
   }
 
@@ -112,12 +112,12 @@ class ProductLocalDatasource {
     }
   }
 
-  // //isert data product
-  // Future<Product> insertProduct(Product product) async {
-  //   final db = await instance.database;
-  //   int id = await db.insert(tableProducts, product.toMap());
-  //   return product.copyWith(id: id);
-  // }
+  //isert data product
+  Future<Product> insertProduct(Product product) async {
+    final db = await instance.database;
+    int id = await db.insert(tableProducts, product.toMap());
+    return product.copyWith(id: id);
+  }
 
   //get all data product
   Future<List<Product>> getAllProduct() async {

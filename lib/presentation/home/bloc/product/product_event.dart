@@ -8,4 +8,6 @@ class ProductEvent with _$ProductEvent {
       _FetchByCategory;
   //fetch from local
   const factory ProductEvent.fetchLocal() = _FetchLocal;
+  //add product
+  const factory ProductEvent.addProduct(Product product) = _AddProduct;
 }

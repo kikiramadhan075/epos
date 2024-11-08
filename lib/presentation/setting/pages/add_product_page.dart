@@ -1,5 +1,9 @@
+import 'dart:io';
+
+import 'package:epos/core/extensions/string_ext.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../core/components/buttons.dart';
@@ -7,6 +11,8 @@ import '../../../core/components/custom_dropdown.dart';
 import '../../../core/components/custom_text_field.dart';
 import '../../../core/components/image_picker_widget.dart';
 import '../../../core/components/spaces.dart';
+import '../../../data/models/response/product_response_model.dart';
+import '../../home/bloc/product/product_bloc.dart';
 import '../models/category_model.dart';
 
 class AddProductPage extends StatefulWidget {
@@ -23,7 +29,7 @@ class _AddProductPageState extends State<AddProductPage> {
 
   String category = 'food';
 
-  XFile? imageFile;
+  File? imageFile;
 
   bool isBestSeller = false;
 
@@ -80,10 +86,10 @@ class _AddProductPageState extends State<AddProductPage> {
           ImagePickerWidget(
             label: 'Foto Produk',
             onChanged: (file) {
-              // if (file == null) {
-              //   return;
-              // }
-              // imageFile = file;
+              if (file == null) {
+                return;
+              }
+              imageFile = file;
             },
           ),
           const SpaceHeight(20.0),
@@ -94,48 +100,70 @@ class _AddProductPageState extends State<AddProductPage> {
           ),
           const SpaceHeight(20.0),
           //isBestSeller
-          // Row(
-          //   children: [
-          //     Checkbox(
-          //       value: isBestSeller,
-          //       onChanged: (value) {
-          //         setState(() {
-          //           isBestSeller = value!;
-          //         });
-          //       },
-          //     ),
-          //     const Text('Produk Terlaris'),
-          //   ],
-          // ),
+          Row(
+            children: [
+              Checkbox(
+                value: isBestSeller,
+                onChanged: (value) {
+                  setState(() {
+                    isBestSeller = value!;
+                  });
+                },
+              ),
+              const Text('Produk Terlaris'),
+            ],
+          ),
           const SpaceHeight(20.0),
-          CustomDropdown(
+          CustomDropdown<CategoryModel>(
             value: categories.first,
             items: categories,
             label: 'Kategori',
             onChanged: (value) {
-              // category = value!.value;
+              category = value!.value;
             },
           ),
           const SpaceHeight(30.0),
-          Button.filled(
+          BlocConsumer<ProductBloc, ProductState>(
+            listener: (context, state) {
+              state.maybeMap(
+                orElse: () {},
+                success: (_) {
+                  Navigator.pop(context);
+                },
+              );
+            },
+            builder: (context, state) {
+              return state.maybeWhen(orElse: () {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }, loading: () {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }, success: (_) {
+                return Button.filled(
                   onPressed: () {
-                    // final String name = nameController!.text;
-                    // final int price = priceController!.text.toIntegerFromText;
-                    // final int stock = stockController!.text.toIntegerFromText;
-                    // final Product product = Product(
-                    //     name: name,
-                    //     price: price,
-                    //     stock: stock,
-                    //     category: category,
-                    //     isBestSeller: isBestSeller,
-                    //     image: imageFile!.absolute.path,
-                    //     isSync: false);
-                    // context
-                    //     .read<ProductBloc>()
-                    //     .add(ProductEvent.addProduct(product));
+                    final String name = nameController!.text;
+                    final int price = priceController!.text.toIntegerFromText;
+                    final int stock = stockController!.text.toIntegerFromText;
+                    final Product product = Product(
+                        name: name,
+                        price: price,
+                        stock: stock,
+                        category: category,
+                        isBestSeller: isBestSeller,
+                        image: imageFile!.absolute.path,
+                        isSync: false);
+                    context
+                        .read<ProductBloc>()
+                        .add(ProductEvent.addProduct(product));
                   },
                   label: 'Simpan',
-                ),
+                );
+              });
+            },
+          ),
           const SpaceHeight(30.0),
           Button.outlined(
             onPressed: () {
