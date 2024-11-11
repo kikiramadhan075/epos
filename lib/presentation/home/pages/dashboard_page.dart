@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/assets/assets.gen.dart';
 import '../../../core/constants/colors.dart';
+import '../../order/pages/order_page.dart';
 import '../../setting/pages/setting_page.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -23,9 +24,7 @@ class _DashboardPageState extends State<DashboardPage> {
 
   final List<Widget> _pages = [
     const HomePage(),
-    const Center(
-      child: Text('Order'),
-    ),
+    const OrderPage(),
     const Center(
       child: Text('History'),
     ),
