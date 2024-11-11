@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:epos/core/extensions/int_ext.dart';
+import 'package:epos/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:epos/presentation/home/models/order_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/components/spaces.dart';
 import '../../../core/constants/colors.dart';
@@ -37,21 +39,19 @@ class OrderCard extends StatelessWidget {
           child: Row(
             children: [
               ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(50.0)),
-                child: 
-                CachedNetworkImage(
-                  width: 76,
-                  height: 76,
-                  fit: BoxFit.cover,
-                  imageUrl: '${Variables.imageBaseUrl}${data.product.image}',
-                  placeholder: (context, url) =>
-                      const CircularProgressIndicator(),
-                  errorWidget: (context, url, error) => const Icon(
-                    Icons.food_bank_outlined,
-                    size: 80,
-                  ),
-                )
-              ),
+                  borderRadius: const BorderRadius.all(Radius.circular(50.0)),
+                  child: CachedNetworkImage(
+                    width: 76,
+                    height: 76,
+                    fit: BoxFit.cover,
+                    imageUrl: '${Variables.imageBaseUrl}${data.product.image}',
+                    placeholder: (context, url) =>
+                        const CircularProgressIndicator(),
+                    errorWidget: (context, url, error) => const Icon(
+                      Icons.food_bank_outlined,
+                      size: 80,
+                    ),
+                  )),
               const SpaceWidth(24.0),
               Flexible(
                 child: Column(
@@ -81,8 +81,11 @@ class OrderCard extends StatelessWidget {
                           GestureDetector(
                             onTap: () {
                               if (data.quantity > 1) {
-                                data.quantity--;
-                                setState(() {});
+                                context
+                                  .read<CheckoutBloc>()
+                                  .add(CheckoutEvent.removeCheckout(data.product));
+                                // data.quantity--;
+                                // setState(() {});
                               }
                             },
                             child: Container(
@@ -101,8 +104,11 @@ class OrderCard extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () {
-                              data.quantity++;
-                              setState(() {});
+                              context
+                                  .read<CheckoutBloc>()
+                                  .add(CheckoutEvent.addCheckout(data.product));
+                              // data.quantity++;
+                              // setState(() {});
                             },
                             child: Container(
                               color: AppColors.white,
