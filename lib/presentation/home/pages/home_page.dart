@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                     isActive: value == 1,
                     onPressed: () => onCategoryTap(1),
                   ),
-                  const SpaceWidth(10.0),
+                  const SpaceWidth(10.0), 
                   MenuButton(
                     iconPath: Assets.icons.food.path,
                     label: 'Makanan',
