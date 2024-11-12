@@ -10,6 +10,7 @@ import '../bloc/bloc/order_bloc.dart';
 import '../models/order_menu.dart';
 import '../widgets/order_card.dart';
 import '../widgets/payment_cash_dialog.dart';
+import '../widgets/payment_qris_dialog.dart';
 import '../widgets/procces_button.dart';
 
 class OrderPage extends StatefulWidget {
@@ -118,11 +119,11 @@ class _OrderPageState extends State<OrderPage> {
                     ),
                   );
                 } else if (indexValue.value == 2) {
-                  // showDialog(
-                  //   context: context,
-                  //   barrierDismissible: false,
-                  //   builder: (context) => const PaymentQrisDialog(),
-                  // );
+                  showDialog(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (context) => const PaymentQrisDialog(),
+                  );
                 }
               },
             ),
