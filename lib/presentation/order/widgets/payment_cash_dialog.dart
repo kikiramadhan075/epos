@@ -23,7 +23,7 @@ class PaymentCashDialog extends StatefulWidget {
 
 class _PaymentCashDialogState extends State<PaymentCashDialog> {
   TextEditingController?
-      priceController; //(text: widget.price.currencyFormatRp);
+      priceController; // = TextEditingController(text: widget.price.currencyFormatRp);
 
   @override
   void initState() {
