@@ -88,7 +88,8 @@ class _OrderPageState extends State<OrderPage> {
                       label: 'Tunai',
                       isActive: value == 1,
                       onPressed: () {
-                         context
+                        indexValue.value = 1;
+                        context
                           .read<OrderBloc>()
                           .add(OrderEvent.addPaymentMethod('Tunai', orders));
                     },
