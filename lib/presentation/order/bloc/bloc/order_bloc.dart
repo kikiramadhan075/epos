@@ -29,13 +29,13 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
       var currentStates = state as _Success;
       emit(const _Loading());
       emit(_Success(
-          currentStates.products,
-          currentStates.totalQuantity,
-          currentStates.totalPrice,
-          currentStates.paymentMethod,
-          currentStates.nominalBayar,
-          currentStates.idKasir,
-          currentStates.namaKasir));
+        currentStates.products,
+        currentStates.totalQuantity,
+        event.nominal,
+        currentStates.paymentMethod,
+        event.nominal,
+        currentStates.idKasir,
+        currentStates.namaKasir,));
     });
 
     //started
