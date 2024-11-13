@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/assets/assets.gen.dart';
 import '../../../core/components/menu_button.dart';
 import '../../../core/components/spaces.dart';
-import '../bloc/bloc/order_bloc.dart';
+import '../bloc/order/order_bloc.dart';
 import '../models/order_menu.dart';
 import '../widgets/order_card.dart';
 import '../widgets/payment_cash_dialog.dart';
@@ -74,37 +74,51 @@ class _OrderPageState extends State<OrderPage> {
           });
         },
       ),
-      bottomNavigationBar: Padding(
+       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            ValueListenableBuilder(
-              valueListenable: indexValue,
-              builder: (context, value, _) => Row(
-                children: [
-                  const SpaceWidth(10.0),
-                  MenuButton(
-                      iconPath: Assets.icons.cash.path,
-                      label: 'Tunai',
-                      isActive: value == 1,
-                      onPressed: () {
-                        indexValue.value = 1;
-                        context
-                          .read<OrderBloc>()
-                          .add(OrderEvent.addPaymentMethod('Tunai', orders));
-                    },
-                  ),
-                  const SpaceWidth(10.0),
-                  MenuButton(
-                    iconPath: Assets.icons.qrCode.path,
-                    label: 'QRIS',
-                    isActive: value == 2,
-                    onPressed: () => indexValue.value = 2,
-                  ),
-                  const SpaceWidth(10.0),
-                ],
-              ),
+            BlocBuilder<CheckoutBloc, CheckoutState>(
+              builder: (context, state) {
+                return state.maybeWhen(
+                  orElse: () {
+                    return const SizedBox.shrink();
+                  },
+                  success: (data, qty, total) {
+                    return ValueListenableBuilder(
+                      valueListenable: indexValue,
+                      builder: (context, value, _) => Row(
+                        children: [
+                          const SpaceWidth(10.0),
+                          MenuButton(
+                            iconPath: Assets.icons.cash.path,
+                            label: 'Tunai',
+                            isActive: value == 1,
+                            onPressed: () {
+                              indexValue.value = 1;
+                              context.read<OrderBloc>().add(
+                                  OrderEvent.addPaymentMethod('Tunai', data));
+                            },
+                          ),
+                          const SpaceWidth(10.0),
+                          MenuButton(
+                            iconPath: Assets.icons.qrCode.path,
+                            label: 'QRIS',
+                            isActive: value == 2,
+                            onPressed: () {
+                              indexValue.value = 2;
+                              context.read<OrderBloc>().add(
+                                  OrderEvent.addPaymentMethod('QRIS', data));
+                            },
+                          ),
+                          const SpaceWidth(10.0),
+                        ],
+                      ),
+                    );
+                  },
+                );
+              },
             ),
             const SpaceHeight(20.0),
             ProcessButton(
@@ -122,7 +136,9 @@ class _OrderPageState extends State<OrderPage> {
                   showDialog(
                     context: context,
                     barrierDismissible: false,
-                    builder: (context) => const PaymentQrisDialog(),
+                    builder: (context) => PaymentQrisDialog(
+                      price: totalPrice,
+                      ),
                   );
                 }
               },

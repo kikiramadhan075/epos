@@ -6,12 +6,14 @@ import 'package:epos/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:epos/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:epos/presentation/home/bloc/product/product_bloc.dart';
 import 'package:epos/presentation/home/pages/dashboard_page.dart';
-import 'package:epos/presentation/order/bloc/bloc/order_bloc.dart';
+import 'package:epos/presentation/order/bloc/order/order_bloc.dart';
+import 'package:epos/presentation/order/qris/bloc/qris_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'core/constants/colors.dart';
+import 'data/datasources/midtrans_remote_datasource.dart';
 import 'presentation/auth/bloc/login/login_bloc.dart';
 
 void main() {
@@ -38,6 +40,8 @@ class MyApp extends StatelessWidget {
           create: (context) => CheckoutBloc()),
         BlocProvider(
           create: (context) => OrderBloc()),
+        BlocProvider(
+          create: (context) => QrisBloc(MidtransRemoteDatasource())),
 
       ],
       child: MaterialApp(

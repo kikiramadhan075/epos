@@ -1,7 +1,6 @@
 import 'package:epos/core/extensions/build_context_ext.dart';
 import 'package:epos/core/extensions/int_ext.dart';
 import 'package:epos/core/extensions/string_ext.dart';
-import 'package:epos/presentation/order/bloc/bloc/order_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,6 +9,7 @@ import '../../../core/components/custom_text_field.dart';
 import '../../../core/components/spaces.dart';
 import '../../../core/constants/colors.dart';
 import '../../../data/datasources/product_local_datasource.dart';
+import '../bloc/order/order_bloc.dart';
 import '../models/order_menu.dart';
 import 'payment_success_dialog.dart';
 
