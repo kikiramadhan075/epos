@@ -1,6 +1,7 @@
 import 'package:epos/core/extensions/build_context_ext.dart';
 import 'package:epos/presentation/home/bloc/product/product_bloc.dart';
 import 'package:epos/presentation/setting/pages/manage_product_page.dart';
+import 'package:epos/presentation/setting/pages/save_server_key_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,23 +31,51 @@ class _SettingPageState extends State<SettingPage> {
         ),
         body: Column(
           children: [
-            Row(
-              children: [
-                MenuButton(
-                  iconPath: Assets.images.manageProduct.path,
-                  label: 'Kelola Produk',
-                  onPressed: () => context.push(const ManageProduct()),
-                  isImage: true
-                ),
-                const SpaceWidth(15.0),
-                MenuButton(
-                  iconPath: Assets.images.managePrinter.path,
-                  label: 'Kelola Printer',
-                  onPressed:
-                      () {}, //=> context.push(const ManagePrinterPage()),
-                  isImage: true,
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
+                children: [
+                  MenuButton(
+                    iconPath: Assets.images.manageProduct.path,
+                    label: 'Kelola Produk',
+                    onPressed: () => context.push(const ManageProduct()),
+                    isImage: true
+                  ),
+                  const SpaceWidth(15.0),
+                  MenuButton(
+                    iconPath: Assets.images.managePrinter.path,
+                    label: 'Kelola Printer',
+                    onPressed:
+                        () {}, //=> context.push(const ManagePrinterPage()),
+                    isImage: true,
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Row(
+                children: [
+                  MenuButton(
+                    iconPath: Assets.images.qrisImage.path,
+                    label: 'QRIS Server Key',
+                    onPressed: () => context.push(const SaveServerKeyPage()),
+                    isImage: true,
+                  ),
+                  const SpaceWidth(15.0),
+                  MenuButton(
+                    iconPath: Assets.images.managePrinter.path,
+                    label: 'Sinkronisasi Data',
+                    onPressed: () {
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => const SyncDataPage()));
+                    }, //=> context.push(const ManagePrinterPage()),
+                    isImage: true,
+                  ),
+                ],
+              ),
             ),
             const SpaceHeight(60),
             BlocConsumer<ProductBloc, ProductState>(
@@ -108,25 +137,6 @@ class _SettingPageState extends State<SettingPage> {
               },
             ),
             const Divider(),
-            // FutureBuilder<List<OrderModel>>(
-            //     future: ProductLocalDatasource.instance.getOrderByIsSync(),
-            //     builder: (context, snapshot) {
-            //       if (snapshot.hasData) {
-            //         return Expanded(
-            //           child: ListView.builder(
-            //             itemBuilder: (context, index) {
-            //               return ListTile(
-            //                 title: Text(
-            //                     snapshot.data![index].paymentMethod.toString()),
-            //               );
-            //             },
-            //             itemCount: snapshot.data!.length,
-            //           ),
-            //         );
-            //       } else {
-            //         return const SizedBox();
-            //       }
-            //     }),
           ],
         ));
   }

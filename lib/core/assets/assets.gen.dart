@@ -126,6 +126,11 @@ class $AssetsImagesGen {
   AssetGenImage get manageProduct =>
       const AssetGenImage('assets/images/manage_product.png');
 
+  /// File path: assets/images/qris_image.png
+  AssetGenImage get qrisImage =>
+      const AssetGenImage('assets/images/qris_image.png');
+
+
   /// List of all assets
   List<AssetGenImage> get values => [
         f1,

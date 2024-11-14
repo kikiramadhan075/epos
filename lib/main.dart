@@ -2,6 +2,7 @@ import 'package:epos/data/datasources/auth_local_datasource.dart';
 import 'package:epos/data/datasources/auth_remote_datasources.dart';
 import 'package:epos/data/datasources/product_remote_datasource.dart';
 import 'package:epos/presentation/auth/pages/login_page.dart';
+import 'package:epos/presentation/history/bloc/history/history_bloc.dart';
 import 'package:epos/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:epos/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:epos/presentation/home/bloc/product/product_bloc.dart';
@@ -42,7 +43,8 @@ class MyApp extends StatelessWidget {
           create: (context) => OrderBloc()),
         BlocProvider(
           create: (context) => QrisBloc(MidtransRemoteDatasource())),
-
+        BlocProvider(
+          create: (context) => HistoryBloc()),
       ],
       child: MaterialApp(
         title: 'ePOS',

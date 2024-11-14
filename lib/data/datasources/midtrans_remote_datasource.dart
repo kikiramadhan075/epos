@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:epos/data/datasources/auth_local_datasource.dart';
 import 'package:epos/data/models/response/qris_response_model.dart';
 import 'package:epos/data/models/response/qris_status_response_model.dart';
 import 'package:http/http.dart' as http;
@@ -13,12 +14,13 @@ class MidtransRemoteDatasource {
   }
 
   Future<QrisResponseModel> generateQRCode(
-      String orderId, int grossAmount) async {
+    String orderId, int grossAmount) async {
+      final serverKey = await AuthLocalDatasource().getMitransServerKey();
     final headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
       'Authorization':
-          generateBasicAuthHeader('Mid-server-your-key'),
+          generateBasicAuthHeader(serverKey),
     };
 
     final body = jsonEncode({
@@ -43,10 +45,11 @@ class MidtransRemoteDatasource {
   }
 
   Future<QrisStatusResponseModel> checkPaymentStatus(String orderId) async {
+    final serverKey = await AuthLocalDatasource().getMitransServerKey();
     final headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': generateBasicAuthHeader('Mid-server-your-key'),
+      'Authorization': generateBasicAuthHeader(serverKey),
     };
 
     final response = await http.get(

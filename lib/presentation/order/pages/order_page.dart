@@ -49,11 +49,11 @@ class _OrderPageState extends State<OrderPage> {
       body: BlocBuilder<CheckoutBloc, CheckoutState>(
         builder: (context, state) {
           return state.maybeWhen(orElse: () {
-            return const Center(child: Text('No Data'));
+            return const Center(child: Text('Belum ada pesanan'));
           }, success: (data, qty, total) {
             if (data.isEmpty) {
               return const Center(
-                child: Text('No Data'),
+                child: Text('Belum ada pesanan'),
               );
             }
             // orders = data;

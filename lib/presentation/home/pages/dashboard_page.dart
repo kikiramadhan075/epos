@@ -1,6 +1,7 @@
 import 'package:epos/data/datasources/auth_local_datasource.dart';
 import 'package:epos/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:epos/presentation/auth/pages/login_page.dart';
+import 'package:epos/presentation/history/pages/history_page.dart';
 import 'package:epos/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:epos/presentation/home/pages/home_page.dart';
 import 'package:epos/presentation/home/widgets/nav_item.dart';
@@ -25,9 +26,7 @@ class _DashboardPageState extends State<DashboardPage> {
   final List<Widget> _pages = [
     const HomePage(),
     const OrderPage(),
-    const Center(
-      child: Text('History'),
-    ),
+    const HistoryPage(),
     const SettingPage(),
     // const HomePage(),
     // const OrdersPage(),

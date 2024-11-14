@@ -843,10 +843,10 @@ class __$$QrisResponseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? qrisResponseModel = freezed,
+    Object? qrisResponseModel = null,
   }) {
     return _then(_$QrisResponseImpl(
-      freezed == qrisResponseModel
+      null == qrisResponseModel
           ? _value.qrisResponseModel
           : qrisResponseModel // ignore: cast_nullable_to_non_nullable
               as QrisResponseModel,
@@ -872,13 +872,12 @@ class _$QrisResponseImpl implements _QrisResponse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QrisResponseImpl &&
-            const DeepCollectionEquality()
-                .equals(other.qrisResponseModel, qrisResponseModel));
+            (identical(other.qrisResponseModel, qrisResponseModel) ||
+                other.qrisResponseModel == qrisResponseModel));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(qrisResponseModel));
+  int get hashCode => Object.hash(runtimeType, qrisResponseModel);
 
   @JsonKey(ignore: true)
   @override
