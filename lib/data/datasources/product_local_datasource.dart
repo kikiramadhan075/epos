@@ -78,6 +78,13 @@ class ProductLocalDatasource {
     return result.map((e) => OrderModel.fromLocalMap(e)).toList();
   }
 
+  //update isSync order by id
+  Future<int> updateIsSyncOrderById(int id) async {
+    final db = await instance.database;
+    return await db.update('orders', {'is_sync': 1},
+        where: 'id = ?', whereArgs: [id]);
+  }
+
   //get all orders
   Future<List<OrderModel>> getAllOrder() async {
     final db = await instance.database;
@@ -92,13 +99,6 @@ class ProductLocalDatasource {
     final result = await db.query('order_items', where: 'id_order = $idOrder');
 
     return result.map((e) => OrderItem.fromMap(e)).toList();
-  }
-
-  //update isSync order by id
-  Future<int> updateIsSyncOrderById(int id) async {
-    final db = await instance.database;
-    return await db.update('orders', {'is_sync': 1},
-        where: 'id = ?', whereArgs: [id]);
   }
 
   Future<Database> get database async {

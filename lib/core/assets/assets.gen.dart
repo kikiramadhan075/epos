@@ -130,7 +130,6 @@ class $AssetsImagesGen {
   AssetGenImage get qrisImage =>
       const AssetGenImage('assets/images/qris_image.png');
 
-
   /// List of all assets
   List<AssetGenImage> get values => [
         f1,
@@ -144,7 +143,8 @@ class $AssetsImagesGen {
         logo,
         managePrinter,
         managePrinterx,
-        manageProduct
+        manageProduct,
+        qrisImage
       ];
 }
 
