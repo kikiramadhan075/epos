@@ -19,19 +19,19 @@ mixin _$SyncOrderEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(OrderRequestModel order) sendOrder,
+    required TResult Function() sendOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(OrderRequestModel order)? sendOrder,
+    TResult? Function()? sendOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(OrderRequestModel order)? sendOrder,
+    TResult Function()? sendOrder,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,7 +113,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(OrderRequestModel order) sendOrder,
+    required TResult Function() sendOrder,
   }) {
     return started();
   }
@@ -122,7 +122,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(OrderRequestModel order)? sendOrder,
+    TResult? Function()? sendOrder,
   }) {
     return started?.call();
   }
@@ -131,7 +131,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(OrderRequestModel order)? sendOrder,
+    TResult Function()? sendOrder,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -181,8 +181,6 @@ abstract class _$$SendOrderImplCopyWith<$Res> {
   factory _$$SendOrderImplCopyWith(
           _$SendOrderImpl value, $Res Function(_$SendOrderImpl) then) =
       __$$SendOrderImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({OrderRequestModel order});
 }
 
 /// @nodoc
@@ -192,78 +190,54 @@ class __$$SendOrderImplCopyWithImpl<$Res>
   __$$SendOrderImplCopyWithImpl(
       _$SendOrderImpl _value, $Res Function(_$SendOrderImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? order = null,
-  }) {
-    return _then(_$SendOrderImpl(
-      null == order
-          ? _value.order
-          : order // ignore: cast_nullable_to_non_nullable
-              as OrderRequestModel,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$SendOrderImpl implements _SendOrder {
-  const _$SendOrderImpl(this.order);
-
-  @override
-  final OrderRequestModel order;
+  const _$SendOrderImpl();
 
   @override
   String toString() {
-    return 'SyncOrderEvent.sendOrder(order: $order)';
+    return 'SyncOrderEvent.sendOrder()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SendOrderImpl &&
-            (identical(other.order, order) || other.order == order));
+        (other.runtimeType == runtimeType && other is _$SendOrderImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, order);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SendOrderImplCopyWith<_$SendOrderImpl> get copyWith =>
-      __$$SendOrderImplCopyWithImpl<_$SendOrderImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(OrderRequestModel order) sendOrder,
+    required TResult Function() sendOrder,
   }) {
-    return sendOrder(order);
+    return sendOrder();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(OrderRequestModel order)? sendOrder,
+    TResult? Function()? sendOrder,
   }) {
-    return sendOrder?.call(order);
+    return sendOrder?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(OrderRequestModel order)? sendOrder,
+    TResult Function()? sendOrder,
     required TResult orElse(),
   }) {
     if (sendOrder != null) {
-      return sendOrder(order);
+      return sendOrder();
     }
     return orElse();
   }
@@ -301,12 +275,7 @@ class _$SendOrderImpl implements _SendOrder {
 }
 
 abstract class _SendOrder implements SyncOrderEvent {
-  const factory _SendOrder(final OrderRequestModel order) = _$SendOrderImpl;
-
-  OrderRequestModel get order;
-  @JsonKey(ignore: true)
-  _$$SendOrderImplCopyWith<_$SendOrderImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _SendOrder() = _$SendOrderImpl;
 }
 
 /// @nodoc

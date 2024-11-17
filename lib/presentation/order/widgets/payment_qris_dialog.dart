@@ -4,12 +4,13 @@ import 'package:epos/core/extensions/build_context_ext.dart';
 import 'package:epos/presentation/order/qris/bloc/qris_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 import '../../../core/components/spaces.dart';
 import '../../../core/constants/colors.dart';
 import '../../../data/datasources/product_local_datasource.dart';
 import '../bloc/order/order_bloc.dart';
-import '../models/order_menu.dart';
+import '../models/order_model.dart';
 import 'payment_success_dialog.dart';
 
 class PaymentQrisDialog extends StatefulWidget {
@@ -100,6 +101,8 @@ class _PaymentQrisDialogState extends State<PaymentQrisDialog> {
                                 totalPrice: total,
                                 idKasir: idKasir,
                                 namaKasir: namaKasir,
+                                transactionTime: DateFormat('yyyy-MM-ddTHH:mm:ss')
+                          .format(DateTime.now()),
                                 isSync: false);
                             ProductLocalDatasource.instance
                                 .saveOrder(orderModel);

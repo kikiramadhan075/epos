@@ -7,7 +7,7 @@ import '../../../core/assets/assets.gen.dart';
 import '../../../core/components/menu_button.dart';
 import '../../../core/components/spaces.dart';
 import '../bloc/order/order_bloc.dart';
-import '../models/order_menu.dart';
+import '../models/order_model.dart';
 import '../widgets/order_card.dart';
 import '../widgets/payment_cash_dialog.dart';
 import '../widgets/payment_qris_dialog.dart';

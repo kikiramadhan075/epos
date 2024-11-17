@@ -6,6 +6,7 @@ import 'package:epos/core/extensions/int_ext.dart';
 import '../../home/models/order_item.dart';
 
 class OrderModel {
+  final int? id;
   final String paymentMethod;
   final int nominalBayar;
   final List<OrderItem> orders;
@@ -13,8 +14,10 @@ class OrderModel {
   final int totalPrice;
   final int idKasir;
   final String namaKasir;
+  final String transactionTime;
   final bool isSync;
   OrderModel({
+    this.id,
     required this.paymentMethod,
     required this.nominalBayar,
     required this.orders,
@@ -23,7 +26,10 @@ class OrderModel {
     required this.idKasir,
     required this.namaKasir,
     required this.isSync,
+    required this.transactionTime,
   });
+
+  
 
   Map<String, dynamic> toMap() {
     return {
@@ -35,6 +41,7 @@ class OrderModel {
       'idKasir': idKasir,
       'namaKasir': namaKasir,
       'isSync': isSync,
+      'transaction_time': transactionTime,
     };
   }
 
@@ -46,6 +53,8 @@ class OrderModel {
       'id_kasir': idKasir,
       'nama_kasir': namaKasir,
       'is_sync': isSync ? 1 : 0,
+      'transaction_time': transactionTime,
+
     };
   }
 
@@ -59,7 +68,9 @@ class OrderModel {
       totalPrice: map['nominal']?.toInt() ?? 0,
       idKasir: map['id_kasir']?.toInt() ?? 0,
       isSync: map['is_sync'] == 1 ? true : false,
+      id: map['id']?.toInt() ?? 0,
       namaKasir: map['nama_kasir'] ?? '',
+      transactionTime: map['transaction_time'] ?? '',
     );
   }
 
@@ -73,7 +84,9 @@ class OrderModel {
       totalPrice: map['totalPrice']?.toInt() ?? 0,
       idKasir: map['idKasir']?.toInt() ?? 0,
       isSync: map['isSync'] ?? false,
+      id: map['id']?.toInt() ?? 0,
       namaKasir: map['namaKasir'] ?? '',
+      transactionTime: map['transactionTime'] ?? '',
     );
   }
 

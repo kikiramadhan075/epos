@@ -2,11 +2,12 @@ import 'package:meta/meta.dart';
 import 'dart:convert';
 
 class OrderRequestModel {
-    final DateTime transactionTime;
+    final String transactionTime;
     final int kasirId;
     final int totalPrice;
     final int totalItem;
-    final List<OrderItem> orderItems;
+    final String paymentMethod;
+    final List<OrderItemModel> orderItems;
 
     OrderRequestModel({
         required this.transactionTime,
@@ -14,6 +15,7 @@ class OrderRequestModel {
         required this.totalPrice,
         required this.totalItem,
         required this.orderItems,
+        this.paymentMethod = 'cash',
     });
 
     factory OrderRequestModel.fromJson(String str) => OrderRequestModel.fromMap(json.decode(str));
@@ -21,38 +23,40 @@ class OrderRequestModel {
     String toJson() => json.encode(toMap());
 
     factory OrderRequestModel.fromMap(Map<String, dynamic> json) => OrderRequestModel(
-        transactionTime: DateTime.parse(json["transaction_time"]),
+        transactionTime: json["transaction_time"],
         kasirId: json["kasir_id"],
         totalPrice: json["total_price"],
         totalItem: json["total_item"],
-        orderItems: List<OrderItem>.from(json["order_items"].map((x) => OrderItem.fromMap(x))),
+        paymentMethod: json["payment_method"],
+        orderItems: List<OrderItemModel>.from(json["order_items"].map((x) => OrderItemModel.fromMap(x))),
     );
 
     Map<String, dynamic> toMap() => {
-        "transaction_time": "${transactionTime.year.toString().padLeft(4, '0')}-${transactionTime.month.toString().padLeft(2, '0')}-${transactionTime.day.toString().padLeft(2, '0')}",
+        "transaction_time": transactionTime,
         "kasir_id": kasirId,
         "total_price": totalPrice,
         "total_item": totalItem,
+        "payment_method": paymentMethod,
         "order_items": List<dynamic>.from(orderItems.map((x) => x.toMap())),
     };
 }
 
-class OrderItem {
+class OrderItemModel {
     final int productId;
     final int quantity;
     final int totalPrice;
 
-    OrderItem({
+    OrderItemModel({
         required this.productId,
         required this.quantity,
         required this.totalPrice,
     });
 
-    factory OrderItem.fromJson(String str) => OrderItem.fromMap(json.decode(str));
+    factory OrderItemModel.fromJson(String str) => OrderItemModel.fromMap(json.decode(str));
 
     String toJson() => json.encode(toMap());
 
-    factory OrderItem.fromMap(Map<String, dynamic> json) => OrderItem(
+    factory OrderItemModel.fromMap(Map<String, dynamic> json) => OrderItemModel(
         productId: json["product_id"],
         quantity: json["quantity"],
         totalPrice: json["total_price"],

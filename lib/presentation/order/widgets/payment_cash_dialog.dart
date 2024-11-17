@@ -3,6 +3,7 @@ import 'package:epos/core/extensions/int_ext.dart';
 import 'package:epos/core/extensions/string_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 import '../../../core/components/buttons.dart';
 import '../../../core/components/custom_text_field.dart';
@@ -10,7 +11,7 @@ import '../../../core/components/spaces.dart';
 import '../../../core/constants/colors.dart';
 import '../../../data/datasources/product_local_datasource.dart';
 import '../bloc/order/order_bloc.dart';
-import '../models/order_menu.dart';
+import '../models/order_model.dart';
 import 'payment_success_dialog.dart';
 
 class PaymentCashDialog extends StatefulWidget {
@@ -116,6 +117,8 @@ class _PaymentCashDialogState extends State<PaymentCashDialog> {
                       totalPrice: total,
                       idKasir: idKasir,
                       namaKasir: namaKasir,
+                      transactionTime: DateFormat('yyyy-MM-ddTHH:mm:ss')
+                          .format(DateTime.now()),
                       isSync: false);
                   ProductLocalDatasource.instance.saveOrder(orderModel);
                   context.pop();

@@ -1,5 +1,6 @@
 import 'package:epos/data/datasources/auth_local_datasource.dart';
 import 'package:epos/data/datasources/auth_remote_datasources.dart';
+import 'package:epos/data/datasources/order_remote_datasource.dart';
 import 'package:epos/data/datasources/product_remote_datasource.dart';
 import 'package:epos/presentation/auth/pages/login_page.dart';
 import 'package:epos/presentation/history/bloc/history/history_bloc.dart';
@@ -9,6 +10,7 @@ import 'package:epos/presentation/home/bloc/product/product_bloc.dart';
 import 'package:epos/presentation/home/pages/dashboard_page.dart';
 import 'package:epos/presentation/order/bloc/order/order_bloc.dart';
 import 'package:epos/presentation/order/qris/bloc/qris_bloc.dart';
+import 'package:epos/presentation/setting/bloc/sync_order/sync_order_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -45,6 +47,8 @@ class MyApp extends StatelessWidget {
           create: (context) => QrisBloc(MidtransRemoteDatasource())),
         BlocProvider(
           create: (context) => HistoryBloc()),
+        BlocProvider(
+          create: (context) => SyncOrderBloc(OrderRemoteDatasource())),
       ],
       child: MaterialApp(
         title: 'ePOS',

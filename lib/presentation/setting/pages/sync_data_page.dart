@@ -1,6 +1,8 @@
 import 'package:epos/core/components/spaces.dart';
 import 'package:epos/data/datasources/auth_local_datasource.dart';
 import 'package:epos/presentation/home/bloc/product/product_bloc.dart';
+import 'package:epos/presentation/order/bloc/order/order_bloc.dart';
+import 'package:epos/presentation/setting/bloc/sync_order/sync_order_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -72,19 +74,41 @@ class _SyncDataPageState extends State<SyncDataPage> {
             ),
           SpaceHeight(20),
           //button sync data order
-          ElevatedButton(
-            onPressed: () {
-              // AuthLocalDatasource()
-              //     .saveMidtransServerKey(serverKeyController!.text);
-              // ScaffoldMessenger.of(context).showSnackBar(
-              //   const SnackBar(
-              //     content: Text('Server Key saved'),
-              //   ),
-              // );
-              Navigator.pop(context);
-            },
-            child: const Text('Simpan'),
-          ),
+          BlocConsumer<SyncOrderBloc, SyncOrderState>(
+              listener: (context, state) {
+                state.maybeMap(
+                  orElse: () {},
+                  success: (_) async {
+                    // await ProductLocalDatasource.instance.removeAllProduct();
+                    // await ProductLocalDatasource.instance
+                    //     .insertAllProduct(_.products.toList());
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        backgroundColor: AppColors.primary,
+                        content: Text(
+                          'Sync data orders success',
+                        )));
+                  },
+                );
+              },
+              builder: (context, state) {
+                return state.maybeWhen(
+                  orElse: () {
+                    return ElevatedButton(
+                        onPressed: () {
+                          context
+                              .read<SyncOrderBloc>()
+                              .add(const SyncOrderEvent.sendOrder());
+                        },
+                        child: const Text('Sync Data Orders'));
+                  },
+                  loading: () {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  },
+                );
+              },
+            ),
         ],
       ),
     );

@@ -6,8 +6,6 @@ import '../../../core/assets/assets.gen.dart';
 import '../../../core/components/menu_button.dart';
 import '../../../core/components/search_input.dart';
 import '../../../core/components/spaces.dart';
-import '../models/product_category.dart';
-import '../models/product_model.dart';
 import '../widgets/product_card.dart';
 import '../widgets/product_empty.dart';
 

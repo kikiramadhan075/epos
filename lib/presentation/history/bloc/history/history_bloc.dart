@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:epos/data/datasources/product_local_datasource.dart';
-import 'package:epos/presentation/order/models/order_menu.dart';
+import 'package:epos/presentation/order/models/order_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'history_event.dart';

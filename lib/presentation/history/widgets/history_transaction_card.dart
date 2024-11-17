@@ -1,11 +1,10 @@
 import 'package:epos/core/extensions/int_ext.dart';
-import 'package:epos/presentation/order/models/order_menu.dart';
+import 'package:epos/presentation/order/models/order_model.dart';
 import 'package:flutter/material.dart';
 
 
 import '../../../core/assets/assets.gen.dart';
 import '../../../core/constants/colors.dart';
-import '../models/history_transaction_model.dart';
 
 class HistoryTransactionCard extends StatelessWidget {
   final OrderModel data;

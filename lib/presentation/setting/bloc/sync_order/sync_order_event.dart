@@ -4,5 +4,5 @@ part of 'sync_order_bloc.dart';
 class SyncOrderEvent with _$SyncOrderEvent {
   const factory SyncOrderEvent.started() = _Started;
   //send order
-  const factory SyncOrderEvent.sendOrder(OrderRequestModel order) = _SendOrder;
+  const factory SyncOrderEvent.sendOrder() = _SendOrder;
 }

@@ -1,7 +1,8 @@
+import 'package:epos/data/models/request/order_request_model.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../../presentation/home/models/order_item.dart';
-import '../../presentation/order/models/order_menu.dart';
+import '../../presentation/order/models/order_model.dart';
 import '../models/response/product_response_model.dart';
 
 class ProductLocalDatasource {
@@ -28,12 +29,14 @@ class ProductLocalDatasource {
     await db.execute('''
       CREATE TABLE $tableProducts (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
+        product_id INTEGER,
         name TEXT,
         price INTEGER,
         stock INTEGER,
         image TEXT,
         category TEXT,
-        is_best_seller INTEGER
+        is_best_seller INTEGER,
+        is_sync INTEGER DEFAULT 0
       )
     ''');
 
@@ -45,6 +48,7 @@ class ProductLocalDatasource {
         total_item INTEGER,
         id_kasir INTEGER,
         nama_kasir TEXT,
+        transaction_time TEXT,
         is_sync INTEGER DEFAULT 0
       )
     ''');
@@ -78,6 +82,14 @@ class ProductLocalDatasource {
     return result.map((e) => OrderModel.fromLocalMap(e)).toList();
   }
 
+  //get order item by id order
+  Future<List<OrderItemModel>> getOrderItemByOrderIdLocal(int idOrder) async {
+    final db = await instance.database;
+    final result = await db.query('order_items', where: 'id_order = $idOrder');
+
+    return result.map((e) => OrderItem.fromMapLocal(e)).toList();
+  }
+
   //update isSync order by id
   Future<int> updateIsSyncOrderById(int id) async {
     final db = await instance.database;
@@ -104,7 +116,7 @@ class ProductLocalDatasource {
   Future<Database> get database async {
     if (_database != null) return _database!;
 
-    _database = await _initDB('pos9.db');
+    _database = await _initDB('pos12.db');
     return _database!;
   }
 
@@ -118,7 +130,7 @@ class ProductLocalDatasource {
   Future<void> insertAllProduct(List<Product> products) async {
     final db = await instance.database;
     for (var product in products) {
-      await db.insert(tableProducts, product.toMap());
+      await db.insert(tableProducts, product.toLocalMap());
     }
   }
 
