@@ -31,6 +31,7 @@ dependencies:
   badges: ^3.1.2
   cached_network_image: ^3.3.1
   cupertino_icons: ^1.0.2
+  esc_pos_utils_plus: ^2.0.3
   dartz: ^0.10.1
   flutter:
     sdk: flutter
@@ -42,6 +43,7 @@ dependencies:
   image_picker: ^1.0.7
   intl: ^0.19.0
   shared_preferences: ^2.2.2
+  print_bluetooth_thermal: ^1.0.9
   sqflite: ^2.3.0
 
 dev_dependencies:

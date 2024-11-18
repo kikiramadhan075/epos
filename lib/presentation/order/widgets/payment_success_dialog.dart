@@ -6,11 +6,13 @@ import 'package:epos/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:epos/presentation/order/bloc/order/order_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:print_bluetooth_thermal/print_bluetooth_thermal.dart';
 
 import '../../../core/assets/assets.gen.dart';
 import '../../../core/components/buttons.dart';
 import '../../../core/components/spaces.dart';
 
+import '../../../data/dataoutputs/epos_print.dart';
 import '../../home/pages/dashboard_page.dart';
 
 class PaymentSuccessDialog extends StatelessWidget {
@@ -87,7 +89,10 @@ class PaymentSuccessDialog extends StatelessWidget {
                       Flexible(
                         child: Button.outlined(
                           onPressed: () async {
-                            // final ticket = await CwbPrint.instance.bluetoothStart();
+                            final printValue = await EposPrint.instance.printOrder(
+                              data, qty, total, paymentType, nominal, nameKasir
+                            );
+                            await PrintBluetoothThermal.writeBytes(printValue);
                             // final result =
                             //     await PrintBluetoothThermal.writeBytes(ticket);
                           },

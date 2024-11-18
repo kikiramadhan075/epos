@@ -1,5 +1,6 @@
 import 'package:epos/core/extensions/build_context_ext.dart';
 import 'package:epos/presentation/home/bloc/product/product_bloc.dart';
+import 'package:epos/presentation/manage/pages/manage_printer_page.dart';
 import 'package:epos/presentation/setting/pages/manage_product_page.dart';
 import 'package:epos/presentation/setting/pages/save_server_key_page.dart';
 import 'package:epos/presentation/setting/pages/sync_data_page.dart';
@@ -37,17 +38,17 @@ class _SettingPageState extends State<SettingPage> {
               child: Row(
                 children: [
                   MenuButton(
-                    iconPath: Assets.images.manageProduct.path,
-                    label: 'Kelola Produk',
-                    onPressed: () => context.push(const ManageProduct()),
-                    isImage: true
-                  ),
+                      iconPath: Assets.images.manageProduct.path,
+                      label: 'Kelola Produk',
+                      onPressed: () => context.push(const ManageProduct()),
+                      isImage: true),
                   const SpaceWidth(15.0),
                   MenuButton(
                     iconPath: Assets.images.managePrinter.path,
                     label: 'Kelola Printer',
-                    onPressed:
-                        () {}, //=> context.push(const ManagePrinterPage()),
+                    onPressed: () {
+                      context.push(const ManagePrinterPage());
+                    }, //=> context.push(const ManagePrinterPage()),
                     isImage: true,
                   ),
                 ],
@@ -72,14 +73,13 @@ class _SettingPageState extends State<SettingPage> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => const SyncDataPage()));
-                    }, //=> context.push(const ManagePrinterPage()),
+                    },
                     isImage: true,
                   ),
                 ],
               ),
             ),
             const SpaceHeight(60),
-            
             const Divider(),
             BlocConsumer<LogoutBloc, LogoutState>(
               listener: (context, state) {
