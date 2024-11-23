@@ -1,4 +1,3 @@
-
 import 'package:epos/core/extensions/build_context_ext.dart';
 import 'package:epos/core/extensions/date_time_ext.dart';
 import 'package:epos/core/extensions/int_ext.dart';
@@ -16,7 +15,8 @@ import '../../../data/dataoutputs/epos_print.dart';
 import '../../home/pages/dashboard_page.dart';
 
 class PaymentSuccessDialog extends StatelessWidget {
-  const PaymentSuccessDialog({super.key});
+  final String diskon;
+  const PaymentSuccessDialog({super.key, required this.diskon});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class PaymentSuccessDialog extends StatelessWidget {
             success:
                 (data, qty, total, paymentType, nominal, idKasir, nameKasir) {
               context.read<CheckoutBloc>().add(const CheckoutEvent.started());
-              
+
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +60,12 @@ class PaymentSuccessDialog extends StatelessWidget {
                   ),
                   const Divider(height: 36.0),
                   _LabelValue(
-                     label: 'NOMINAL BAYAR',
+                    label: 'DISKON',
+                    value: '$diskon%',
+                  ),
+                  const Divider(height: 36.0),
+                  _LabelValue(
+                    label: 'NOMINAL BAYAR',
                     value: paymentType == 'QRIS'
                         ? total.currencyFormatRp
                         : nominal.currencyFormatRp,
@@ -77,8 +82,12 @@ class PaymentSuccessDialog extends StatelessWidget {
                       Flexible(
                         child: Button.filled(
                           onPressed: () {
-                            context.read<CheckoutBloc>().add(const CheckoutEvent.started());
-                            context.read<OrderBloc>().add(const OrderEvent.started());
+                            context
+                                .read<CheckoutBloc>()
+                                .add(const CheckoutEvent.started());
+                            context
+                                .read<OrderBloc>()
+                                .add(const OrderEvent.started());
                             context.pushReplacement(const DashboardPage());
                           },
                           label: 'Selesai',
@@ -89,9 +98,9 @@ class PaymentSuccessDialog extends StatelessWidget {
                       Flexible(
                         child: Button.outlined(
                           onPressed: () async {
-                            final printValue = await EposPrint.instance.printOrder(
-                              data, qty, total, paymentType, nominal, nameKasir
-                            );
+                            final printValue = await EposPrint.instance
+                                .printOrder(data, qty, total, paymentType,
+                                    nominal, nameKasir);
                             await PrintBluetoothThermal.writeBytes(printValue);
                             // final result =
                             //     await PrintBluetoothThermal.writeBytes(ticket);

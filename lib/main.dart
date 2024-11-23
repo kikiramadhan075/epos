@@ -1,5 +1,6 @@
 import 'package:epos/data/datasources/auth_local_datasource.dart';
 import 'package:epos/data/datasources/auth_remote_datasources.dart';
+import 'package:epos/data/datasources/discount_remote_datasource.dart';
 import 'package:epos/data/datasources/order_remote_datasource.dart';
 import 'package:epos/data/datasources/product_remote_datasource.dart';
 import 'package:epos/presentation/auth/pages/login_page.dart';
@@ -10,6 +11,7 @@ import 'package:epos/presentation/home/bloc/product/product_bloc.dart';
 import 'package:epos/presentation/home/pages/dashboard_page.dart';
 import 'package:epos/presentation/order/bloc/order/order_bloc.dart';
 import 'package:epos/presentation/order/qris/bloc/qris_bloc.dart';
+import 'package:epos/presentation/setting/bloc/discount/discount_bloc.dart';
 import 'package:epos/presentation/setting/bloc/sync_order/sync_order_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,18 +39,17 @@ class MyApp extends StatelessWidget {
           create: (context) => LogoutBloc(AuthRemoteDatasource()),
         ),
         BlocProvider(
-          create: (context) => ProductBloc(ProductRemoteDatasource())..add(const ProductEvent.fetchLocal()),
+          create: (context) => ProductBloc(ProductRemoteDatasource())
+            ..add(const ProductEvent.fetchLocal()),
         ),
+        BlocProvider(create: (context) => CheckoutBloc()),
+        BlocProvider(create: (context) => OrderBloc()),
+        BlocProvider(create: (context) => QrisBloc(MidtransRemoteDatasource())),
+        BlocProvider(create: (context) => HistoryBloc()),
         BlocProvider(
-          create: (context) => CheckoutBloc()),
+            create: (context) => SyncOrderBloc(OrderRemoteDatasource())),
         BlocProvider(
-          create: (context) => OrderBloc()),
-        BlocProvider(
-          create: (context) => QrisBloc(MidtransRemoteDatasource())),
-        BlocProvider(
-          create: (context) => HistoryBloc()),
-        BlocProvider(
-          create: (context) => SyncOrderBloc(OrderRemoteDatasource())),
+            create: (context) => DiscountBloc(DiscountRemoteDatasource())),
       ],
       child: MaterialApp(
         title: 'ePOS',

@@ -21,6 +21,8 @@ mixin _$CheckoutEvent {
     required TResult Function() started,
     required TResult Function(Product product) addCheckout,
     required TResult Function(Product product) removeCheckout,
+    required TResult Function(Discount discount) addDiscount,
+    required TResult Function() removeDiscount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +30,8 @@ mixin _$CheckoutEvent {
     TResult? Function()? started,
     TResult? Function(Product product)? addCheckout,
     TResult? Function(Product product)? removeCheckout,
+    TResult? Function(Discount discount)? addDiscount,
+    TResult? Function()? removeDiscount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +39,8 @@ mixin _$CheckoutEvent {
     TResult Function()? started,
     TResult Function(Product product)? addCheckout,
     TResult Function(Product product)? removeCheckout,
+    TResult Function(Discount discount)? addDiscount,
+    TResult Function()? removeDiscount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +49,8 @@ mixin _$CheckoutEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_AddCheckout value) addCheckout,
     required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_AddDiscount value) addDiscount,
+    required TResult Function(_RemoveDiscount value) removeDiscount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +58,8 @@ mixin _$CheckoutEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(_AddCheckout value)? addCheckout,
     TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_AddDiscount value)? addDiscount,
+    TResult? Function(_RemoveDiscount value)? removeDiscount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +67,8 @@ mixin _$CheckoutEvent {
     TResult Function(_Started value)? started,
     TResult Function(_AddCheckout value)? addCheckout,
     TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_AddDiscount value)? addDiscount,
+    TResult Function(_RemoveDiscount value)? removeDiscount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +133,8 @@ class _$StartedImpl implements _Started {
     required TResult Function() started,
     required TResult Function(Product product) addCheckout,
     required TResult Function(Product product) removeCheckout,
+    required TResult Function(Discount discount) addDiscount,
+    required TResult Function() removeDiscount,
   }) {
     return started();
   }
@@ -131,6 +145,8 @@ class _$StartedImpl implements _Started {
     TResult? Function()? started,
     TResult? Function(Product product)? addCheckout,
     TResult? Function(Product product)? removeCheckout,
+    TResult? Function(Discount discount)? addDiscount,
+    TResult? Function()? removeDiscount,
   }) {
     return started?.call();
   }
@@ -141,6 +157,8 @@ class _$StartedImpl implements _Started {
     TResult Function()? started,
     TResult Function(Product product)? addCheckout,
     TResult Function(Product product)? removeCheckout,
+    TResult Function(Discount discount)? addDiscount,
+    TResult Function()? removeDiscount,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -155,6 +173,8 @@ class _$StartedImpl implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_AddCheckout value) addCheckout,
     required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_AddDiscount value) addDiscount,
+    required TResult Function(_RemoveDiscount value) removeDiscount,
   }) {
     return started(this);
   }
@@ -165,6 +185,8 @@ class _$StartedImpl implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(_AddCheckout value)? addCheckout,
     TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_AddDiscount value)? addDiscount,
+    TResult? Function(_RemoveDiscount value)? removeDiscount,
   }) {
     return started?.call(this);
   }
@@ -175,6 +197,8 @@ class _$StartedImpl implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_AddCheckout value)? addCheckout,
     TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_AddDiscount value)? addDiscount,
+    TResult Function(_RemoveDiscount value)? removeDiscount,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -255,6 +279,8 @@ class _$AddCheckoutImpl implements _AddCheckout {
     required TResult Function() started,
     required TResult Function(Product product) addCheckout,
     required TResult Function(Product product) removeCheckout,
+    required TResult Function(Discount discount) addDiscount,
+    required TResult Function() removeDiscount,
   }) {
     return addCheckout(product);
   }
@@ -265,6 +291,8 @@ class _$AddCheckoutImpl implements _AddCheckout {
     TResult? Function()? started,
     TResult? Function(Product product)? addCheckout,
     TResult? Function(Product product)? removeCheckout,
+    TResult? Function(Discount discount)? addDiscount,
+    TResult? Function()? removeDiscount,
   }) {
     return addCheckout?.call(product);
   }
@@ -275,6 +303,8 @@ class _$AddCheckoutImpl implements _AddCheckout {
     TResult Function()? started,
     TResult Function(Product product)? addCheckout,
     TResult Function(Product product)? removeCheckout,
+    TResult Function(Discount discount)? addDiscount,
+    TResult Function()? removeDiscount,
     required TResult orElse(),
   }) {
     if (addCheckout != null) {
@@ -289,6 +319,8 @@ class _$AddCheckoutImpl implements _AddCheckout {
     required TResult Function(_Started value) started,
     required TResult Function(_AddCheckout value) addCheckout,
     required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_AddDiscount value) addDiscount,
+    required TResult Function(_RemoveDiscount value) removeDiscount,
   }) {
     return addCheckout(this);
   }
@@ -299,6 +331,8 @@ class _$AddCheckoutImpl implements _AddCheckout {
     TResult? Function(_Started value)? started,
     TResult? Function(_AddCheckout value)? addCheckout,
     TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_AddDiscount value)? addDiscount,
+    TResult? Function(_RemoveDiscount value)? removeDiscount,
   }) {
     return addCheckout?.call(this);
   }
@@ -309,6 +343,8 @@ class _$AddCheckoutImpl implements _AddCheckout {
     TResult Function(_Started value)? started,
     TResult Function(_AddCheckout value)? addCheckout,
     TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_AddDiscount value)? addDiscount,
+    TResult Function(_RemoveDiscount value)? removeDiscount,
     required TResult orElse(),
   }) {
     if (addCheckout != null) {
@@ -395,6 +431,8 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     required TResult Function() started,
     required TResult Function(Product product) addCheckout,
     required TResult Function(Product product) removeCheckout,
+    required TResult Function(Discount discount) addDiscount,
+    required TResult Function() removeDiscount,
   }) {
     return removeCheckout(product);
   }
@@ -405,6 +443,8 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     TResult? Function()? started,
     TResult? Function(Product product)? addCheckout,
     TResult? Function(Product product)? removeCheckout,
+    TResult? Function(Discount discount)? addDiscount,
+    TResult? Function()? removeDiscount,
   }) {
     return removeCheckout?.call(product);
   }
@@ -415,6 +455,8 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     TResult Function()? started,
     TResult Function(Product product)? addCheckout,
     TResult Function(Product product)? removeCheckout,
+    TResult Function(Discount discount)? addDiscount,
+    TResult Function()? removeDiscount,
     required TResult orElse(),
   }) {
     if (removeCheckout != null) {
@@ -429,6 +471,8 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     required TResult Function(_Started value) started,
     required TResult Function(_AddCheckout value) addCheckout,
     required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_AddDiscount value) addDiscount,
+    required TResult Function(_RemoveDiscount value) removeDiscount,
   }) {
     return removeCheckout(this);
   }
@@ -439,6 +483,8 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     TResult? Function(_Started value)? started,
     TResult? Function(_AddCheckout value)? addCheckout,
     TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_AddDiscount value)? addDiscount,
+    TResult? Function(_RemoveDiscount value)? removeDiscount,
   }) {
     return removeCheckout?.call(this);
   }
@@ -449,6 +495,8 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     TResult Function(_Started value)? started,
     TResult Function(_AddCheckout value)? addCheckout,
     TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_AddDiscount value)? addDiscount,
+    TResult Function(_RemoveDiscount value)? removeDiscount,
     required TResult orElse(),
   }) {
     if (removeCheckout != null) {
@@ -468,13 +516,285 @@ abstract class _RemoveCheckout implements CheckoutEvent {
 }
 
 /// @nodoc
+abstract class _$$AddDiscountImplCopyWith<$Res> {
+  factory _$$AddDiscountImplCopyWith(
+          _$AddDiscountImpl value, $Res Function(_$AddDiscountImpl) then) =
+      __$$AddDiscountImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Discount discount});
+}
+
+/// @nodoc
+class __$$AddDiscountImplCopyWithImpl<$Res>
+    extends _$CheckoutEventCopyWithImpl<$Res, _$AddDiscountImpl>
+    implements _$$AddDiscountImplCopyWith<$Res> {
+  __$$AddDiscountImplCopyWithImpl(
+      _$AddDiscountImpl _value, $Res Function(_$AddDiscountImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? discount = null,
+  }) {
+    return _then(_$AddDiscountImpl(
+      null == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as Discount,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddDiscountImpl implements _AddDiscount {
+  const _$AddDiscountImpl(this.discount);
+
+  @override
+  final Discount discount;
+
+  @override
+  String toString() {
+    return 'CheckoutEvent.addDiscount(discount: $discount)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddDiscountImpl &&
+            (identical(other.discount, discount) ||
+                other.discount == discount));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, discount);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddDiscountImplCopyWith<_$AddDiscountImpl> get copyWith =>
+      __$$AddDiscountImplCopyWithImpl<_$AddDiscountImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(Product product) addCheckout,
+    required TResult Function(Product product) removeCheckout,
+    required TResult Function(Discount discount) addDiscount,
+    required TResult Function() removeDiscount,
+  }) {
+    return addDiscount(discount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(Product product)? addCheckout,
+    TResult? Function(Product product)? removeCheckout,
+    TResult? Function(Discount discount)? addDiscount,
+    TResult? Function()? removeDiscount,
+  }) {
+    return addDiscount?.call(discount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Product product)? addCheckout,
+    TResult Function(Product product)? removeCheckout,
+    TResult Function(Discount discount)? addDiscount,
+    TResult Function()? removeDiscount,
+    required TResult orElse(),
+  }) {
+    if (addDiscount != null) {
+      return addDiscount(discount);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_AddCheckout value) addCheckout,
+    required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_AddDiscount value) addDiscount,
+    required TResult Function(_RemoveDiscount value) removeDiscount,
+  }) {
+    return addDiscount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_AddCheckout value)? addCheckout,
+    TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_AddDiscount value)? addDiscount,
+    TResult? Function(_RemoveDiscount value)? removeDiscount,
+  }) {
+    return addDiscount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_AddCheckout value)? addCheckout,
+    TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_AddDiscount value)? addDiscount,
+    TResult Function(_RemoveDiscount value)? removeDiscount,
+    required TResult orElse(),
+  }) {
+    if (addDiscount != null) {
+      return addDiscount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddDiscount implements CheckoutEvent {
+  const factory _AddDiscount(final Discount discount) = _$AddDiscountImpl;
+
+  Discount get discount;
+  @JsonKey(ignore: true)
+  _$$AddDiscountImplCopyWith<_$AddDiscountImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveDiscountImplCopyWith<$Res> {
+  factory _$$RemoveDiscountImplCopyWith(_$RemoveDiscountImpl value,
+          $Res Function(_$RemoveDiscountImpl) then) =
+      __$$RemoveDiscountImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RemoveDiscountImplCopyWithImpl<$Res>
+    extends _$CheckoutEventCopyWithImpl<$Res, _$RemoveDiscountImpl>
+    implements _$$RemoveDiscountImplCopyWith<$Res> {
+  __$$RemoveDiscountImplCopyWithImpl(
+      _$RemoveDiscountImpl _value, $Res Function(_$RemoveDiscountImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RemoveDiscountImpl implements _RemoveDiscount {
+  const _$RemoveDiscountImpl();
+
+  @override
+  String toString() {
+    return 'CheckoutEvent.removeDiscount()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RemoveDiscountImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(Product product) addCheckout,
+    required TResult Function(Product product) removeCheckout,
+    required TResult Function(Discount discount) addDiscount,
+    required TResult Function() removeDiscount,
+  }) {
+    return removeDiscount();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(Product product)? addCheckout,
+    TResult? Function(Product product)? removeCheckout,
+    TResult? Function(Discount discount)? addDiscount,
+    TResult? Function()? removeDiscount,
+  }) {
+    return removeDiscount?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Product product)? addCheckout,
+    TResult Function(Product product)? removeCheckout,
+    TResult Function(Discount discount)? addDiscount,
+    TResult Function()? removeDiscount,
+    required TResult orElse(),
+  }) {
+    if (removeDiscount != null) {
+      return removeDiscount();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_AddCheckout value) addCheckout,
+    required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_AddDiscount value) addDiscount,
+    required TResult Function(_RemoveDiscount value) removeDiscount,
+  }) {
+    return removeDiscount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_AddCheckout value)? addCheckout,
+    TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_AddDiscount value)? addDiscount,
+    TResult? Function(_RemoveDiscount value)? removeDiscount,
+  }) {
+    return removeDiscount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_AddCheckout value)? addCheckout,
+    TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_AddDiscount value)? addDiscount,
+    TResult Function(_RemoveDiscount value)? removeDiscount,
+    required TResult orElse(),
+  }) {
+    if (removeDiscount != null) {
+      return removeDiscount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveDiscount implements CheckoutEvent {
+  const factory _RemoveDiscount() = _$RemoveDiscountImpl;
+}
+
+/// @nodoc
 mixin _$CheckoutState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)
+    required TResult Function(List<OrderItem> products, int totalQuantity,
+            int totalPrice, Discount? discount)
         success,
     required TResult Function(String message) error,
   }) =>
@@ -483,8 +803,8 @@ mixin _$CheckoutState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
+    TResult? Function(List<OrderItem> products, int totalQuantity,
+            int totalPrice, Discount? discount)?
         success,
     TResult? Function(String message)? error,
   }) =>
@@ -493,8 +813,8 @@ mixin _$CheckoutState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
+    TResult Function(List<OrderItem> products, int totalQuantity,
+            int totalPrice, Discount? discount)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -585,8 +905,8 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)
+    required TResult Function(List<OrderItem> products, int totalQuantity,
+            int totalPrice, Discount? discount)
         success,
     required TResult Function(String message) error,
   }) {
@@ -598,8 +918,8 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
+    TResult? Function(List<OrderItem> products, int totalQuantity,
+            int totalPrice, Discount? discount)?
         success,
     TResult? Function(String message)? error,
   }) {
@@ -611,8 +931,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
+    TResult Function(List<OrderItem> products, int totalQuantity,
+            int totalPrice, Discount? discount)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -705,8 +1025,8 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)
+    required TResult Function(List<OrderItem> products, int totalQuantity,
+            int totalPrice, Discount? discount)
         success,
     required TResult Function(String message) error,
   }) {
@@ -718,8 +1038,8 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
+    TResult? Function(List<OrderItem> products, int totalQuantity,
+            int totalPrice, Discount? discount)?
         success,
     TResult? Function(String message)? error,
   }) {
@@ -731,8 +1051,8 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
+    TResult Function(List<OrderItem> products, int totalQuantity,
+            int totalPrice, Discount? discount)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -791,7 +1111,11 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<OrderItem> products, int totalQuantity, int totalPrice});
+  $Res call(
+      {List<OrderItem> products,
+      int totalQuantity,
+      int totalPrice,
+      Discount? discount});
 }
 
 /// @nodoc
@@ -808,6 +1132,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
     Object? products = null,
     Object? totalQuantity = null,
     Object? totalPrice = null,
+    Object? discount = freezed,
   }) {
     return _then(_$SuccessImpl(
       null == products
@@ -822,6 +1147,10 @@ class __$$SuccessImplCopyWithImpl<$Res>
           ? _value.totalPrice
           : totalPrice // ignore: cast_nullable_to_non_nullable
               as int,
+      freezed == discount
+          ? _value.discount
+          : discount // ignore: cast_nullable_to_non_nullable
+              as Discount?,
     ));
   }
 }
@@ -829,8 +1158,8 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(
-      final List<OrderItem> products, this.totalQuantity, this.totalPrice)
+  const _$SuccessImpl(final List<OrderItem> products, this.totalQuantity,
+      this.totalPrice, this.discount)
       : _products = products;
 
   final List<OrderItem> _products;
@@ -845,10 +1174,12 @@ class _$SuccessImpl implements _Success {
   final int totalQuantity;
   @override
   final int totalPrice;
+  @override
+  final Discount? discount;
 
   @override
   String toString() {
-    return 'CheckoutState.success(products: $products, totalQuantity: $totalQuantity, totalPrice: $totalPrice)';
+    return 'CheckoutState.success(products: $products, totalQuantity: $totalQuantity, totalPrice: $totalPrice, discount: $discount)';
   }
 
   @override
@@ -860,7 +1191,9 @@ class _$SuccessImpl implements _Success {
             (identical(other.totalQuantity, totalQuantity) ||
                 other.totalQuantity == totalQuantity) &&
             (identical(other.totalPrice, totalPrice) ||
-                other.totalPrice == totalPrice));
+                other.totalPrice == totalPrice) &&
+            (identical(other.discount, discount) ||
+                other.discount == discount));
   }
 
   @override
@@ -868,7 +1201,8 @@ class _$SuccessImpl implements _Success {
       runtimeType,
       const DeepCollectionEquality().hash(_products),
       totalQuantity,
-      totalPrice);
+      totalPrice,
+      discount);
 
   @JsonKey(ignore: true)
   @override
@@ -881,12 +1215,12 @@ class _$SuccessImpl implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)
+    required TResult Function(List<OrderItem> products, int totalQuantity,
+            int totalPrice, Discount? discount)
         success,
     required TResult Function(String message) error,
   }) {
-    return success(products, totalQuantity, totalPrice);
+    return success(products, totalQuantity, totalPrice, discount);
   }
 
   @override
@@ -894,12 +1228,12 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
+    TResult? Function(List<OrderItem> products, int totalQuantity,
+            int totalPrice, Discount? discount)?
         success,
     TResult? Function(String message)? error,
   }) {
-    return success?.call(products, totalQuantity, totalPrice);
+    return success?.call(products, totalQuantity, totalPrice, discount);
   }
 
   @override
@@ -907,14 +1241,14 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
+    TResult Function(List<OrderItem> products, int totalQuantity,
+            int totalPrice, Discount? discount)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(products, totalQuantity, totalPrice);
+      return success(products, totalQuantity, totalPrice, discount);
     }
     return orElse();
   }
@@ -958,12 +1292,16 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements CheckoutState {
-  const factory _Success(final List<OrderItem> products,
-      final int totalQuantity, final int totalPrice) = _$SuccessImpl;
+  const factory _Success(
+      final List<OrderItem> products,
+      final int totalQuantity,
+      final int totalPrice,
+      final Discount? discount) = _$SuccessImpl;
 
   List<OrderItem> get products;
   int get totalQuantity;
   int get totalPrice;
+  Discount? get discount;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1035,8 +1373,8 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)
+    required TResult Function(List<OrderItem> products, int totalQuantity,
+            int totalPrice, Discount? discount)
         success,
     required TResult Function(String message) error,
   }) {
@@ -1048,8 +1386,8 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
+    TResult? Function(List<OrderItem> products, int totalQuantity,
+            int totalPrice, Discount? discount)?
         success,
     TResult? Function(String message)? error,
   }) {
@@ -1061,8 +1399,8 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<OrderItem> products, int totalQuantity, int totalPrice)?
+    TResult Function(List<OrderItem> products, int totalQuantity,
+            int totalPrice, Discount? discount)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),

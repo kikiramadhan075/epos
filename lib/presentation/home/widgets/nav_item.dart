@@ -31,10 +31,10 @@ class NavItem extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          label == 'Orders'?
-           BlocBuilder<CheckoutBloc, CheckoutState>(
-             builder: (context, state) {
-              return state.maybeWhen(
+          label == 'Orders'
+              ? BlocBuilder<CheckoutBloc, CheckoutState>(
+                  builder: (context, state) {
+                    return state.maybeWhen(
                       orElse: () {
                         return SizedBox(
                           width: 25.0,
@@ -48,7 +48,7 @@ class NavItem extends StatelessWidget {
                           ),
                         );
                       },
-                      success: (data, qty, total) {
+                      success: (data, qty, total, discount) {
                         if (data.isEmpty) {
                           return SizedBox(
                             width: 25.0,
@@ -84,33 +84,34 @@ class NavItem extends StatelessWidget {
                         }
                       },
                     );
-                      
-              //  return badges.Badge(
-              //          badgeContent: Text('3'),
-              //          child: SizedBox(
-              //            width: 25.0,
-              //            height: 25.0,
-              //            child: SvgPicture.asset(
-              //              iconPath,
-              //              colorFilter: ColorFilter.mode(
-              //                isActive ? AppColors.black : AppColors.disabled,
-              //                BlendMode.srcIn,
-              //              ),
-              //            ),
-              //          ),
-              //        );
-             },
-           ): SizedBox(
-              width: 25.0,
-              height: 25.0,
-              child: SvgPicture.asset(
-                iconPath,
-                colorFilter: ColorFilter.mode(
-                  isActive ? AppColors.black : AppColors.disabled,
-                  BlendMode.srcIn,
+
+                    //  return badges.Badge(
+                    //          badgeContent: Text('3'),
+                    //          child: SizedBox(
+                    //            width: 25.0,
+                    //            height: 25.0,
+                    //            child: SvgPicture.asset(
+                    //              iconPath,
+                    //              colorFilter: ColorFilter.mode(
+                    //                isActive ? AppColors.black : AppColors.disabled,
+                    //                BlendMode.srcIn,
+                    //              ),
+                    //            ),
+                    //          ),
+                    //        );
+                  },
+                )
+              : SizedBox(
+                  width: 25.0,
+                  height: 25.0,
+                  child: SvgPicture.asset(
+                    iconPath,
+                    colorFilter: ColorFilter.mode(
+                      isActive ? AppColors.black : AppColors.disabled,
+                      BlendMode.srcIn,
+                    ),
+                  ),
                 ),
-              ),
-            ),
           const SpaceHeight(4.0),
           Text(
             label,
@@ -124,4 +125,3 @@ class NavItem extends StatelessWidget {
     );
   }
 }
-

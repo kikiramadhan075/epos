@@ -1,4 +1,5 @@
 import 'package:epos/presentation/home/bloc/product/product_bloc.dart';
+import 'package:epos/presentation/setting/bloc/discount/discount_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -55,6 +56,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     context.read<ProductBloc>().add(const ProductEvent.fetchLocal());
+    // context.read<DiscountBloc>().add(const DiscountEvent.getDiscounts());
     super.initState();
   }
 
@@ -128,7 +130,7 @@ class _HomePageState extends State<HomePage> {
                     isActive: value == 1,
                     onPressed: () => onCategoryTap(1),
                   ),
-                  const SpaceWidth(10.0), 
+                  const SpaceWidth(10.0),
                   MenuButton(
                     iconPath: Assets.icons.food.path,
                     label: 'Makanan',
@@ -193,8 +195,24 @@ class _HomePageState extends State<HomePage> {
                 //   ),
                 // );
               },
-            ),
-            const SpaceHeight(30.0),
+              // ),
+              // const SpaceHeight(30.0),
+              // BlocBuilder<DiscountBloc, DiscountState>(builder: (ctx, state) {
+              //   return state.maybeWhen(orElse: () {
+              //     return Container();
+              //   }, loading: () {
+              //     return const CircularProgressIndicator();
+              //   }, error: (message) {
+              //     return Text(message);
+              //   }, loaded: (diskon) {
+              //     if (diskon.isEmpty) return Container();
+
+              //     return Column(
+              //       children: [for (var data in diskon) Text(data.name!)],
+              //     );
+              //   });
+              // })
+            )
           ],
         ),
       ),

@@ -1,5 +1,7 @@
+import 'package:epos/core/components/buttons.dart';
 import 'package:epos/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:epos/presentation/home/models/order_item.dart';
+import 'package:epos/presentation/order/widgets/discount_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,6 +27,7 @@ class _OrderPageState extends State<OrderPage> {
 
   List<OrderItem> orders = [];
   int totalPrice = 0;
+  String diskon = '';
   int calculateTotalPrice(List<OrderItem> orders) {
     return orders.fold(
         0,
@@ -50,7 +53,7 @@ class _OrderPageState extends State<OrderPage> {
         builder: (context, state) {
           return state.maybeWhen(orElse: () {
             return const Center(child: Text('Belum ada pesanan'));
-          }, success: (data, qty, total) {
+          }, success: (data, qty, total, discount) {
             if (data.isEmpty) {
               return const Center(
                 child: Text('Belum ada pesanan'),
@@ -58,6 +61,7 @@ class _OrderPageState extends State<OrderPage> {
             }
             // orders = data;
             totalPrice = total;
+            diskon = discount?.value!.replaceAll('.00', '') ?? '0';
             return ListView.separated(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
               itemCount: data.length,
@@ -65,6 +69,7 @@ class _OrderPageState extends State<OrderPage> {
               itemBuilder: (context, index) => OrderCard(
                 padding: paddingHorizontal,
                 data: data[index],
+                discount: double.parse(discount?.value ?? '0'),
                 onDeleteTap: () {
                   // orders.removeAt(index);
                   // setState(() {});
@@ -74,18 +79,27 @@ class _OrderPageState extends State<OrderPage> {
           });
         },
       ),
-       bottomNavigationBar: Padding(
+      bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            Button.filled(
+                onPressed: () {
+                  showDialog(
+                      barrierDismissible: false,
+                      context: context,
+                      builder: (context) => const DiscountDialog());
+                },
+                label: 'Pilih Kode Voucher'),
+            const SpaceHeight(10),
             BlocBuilder<CheckoutBloc, CheckoutState>(
               builder: (context, state) {
                 return state.maybeWhen(
                   orElse: () {
                     return const SizedBox.shrink();
                   },
-                  success: (data, qty, total) {
+                  success: (data, qty, total, discount) {
                     return ValueListenableBuilder(
                       valueListenable: indexValue,
                       builder: (context, value, _) => Row(
@@ -130,6 +144,7 @@ class _OrderPageState extends State<OrderPage> {
                     context: context,
                     builder: (context) => PaymentCashDialog(
                       price: totalPrice,
+                      diskon: diskon,
                     ),
                   );
                 } else if (indexValue.value == 2) {
@@ -138,7 +153,8 @@ class _OrderPageState extends State<OrderPage> {
                     barrierDismissible: false,
                     builder: (context) => PaymentQrisDialog(
                       price: totalPrice,
-                      ),
+                      diskon: diskon,
+                    ),
                   );
                 }
               },

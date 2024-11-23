@@ -16,7 +16,9 @@ import 'payment_success_dialog.dart';
 
 class PaymentCashDialog extends StatefulWidget {
   final int price;
-  const PaymentCashDialog({super.key, required this.price});
+  final String diskon;
+  const PaymentCashDialog(
+      {super.key, required this.price, required this.diskon});
 
   @override
   State<PaymentCashDialog> createState() => _PaymentCashDialogState();
@@ -124,7 +126,9 @@ class _PaymentCashDialogState extends State<PaymentCashDialog> {
                   context.pop();
                   showDialog(
                     context: context,
-                    builder: (context) => const PaymentSuccessDialog(),
+                    builder: (context) => PaymentSuccessDialog(
+                      diskon: widget.diskon,
+                    ),
                   );
                 },
               );

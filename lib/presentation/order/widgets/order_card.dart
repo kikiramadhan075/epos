@@ -4,6 +4,7 @@ import 'package:epos/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:epos/presentation/home/models/order_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 import '../../../core/components/spaces.dart';
 import '../../../core/constants/colors.dart';
@@ -11,6 +12,7 @@ import '../../../core/constants/variables.dart';
 
 class OrderCard extends StatelessWidget {
   final OrderItem data;
+  final double? discount;
   final VoidCallback onDeleteTap;
   final EdgeInsetsGeometry? padding;
 
@@ -19,6 +21,7 @@ class OrderCard extends StatelessWidget {
     required this.data,
     required this.onDeleteTap,
     this.padding,
+    this.discount = 0,
   });
 
   @override
@@ -67,7 +70,14 @@ class OrderCard extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          data.product.price.currencyFormatRp,
+                          discount != 0
+                              ? NumberFormat.currency(
+                                  locale: 'id',
+                                  symbol: 'Rp. ',
+                                  decimalDigits: 1,
+                                ).format(data.product.price -
+                                  (data.product.price * (discount! / 100)))
+                              : data.product.price.currencyFormatRp,
                           style: const TextStyle(
                             fontWeight: FontWeight.w700,
                           ),
@@ -81,9 +91,8 @@ class OrderCard extends StatelessWidget {
                           GestureDetector(
                             onTap: () {
                               if (data.quantity > 1) {
-                                context
-                                  .read<CheckoutBloc>()
-                                  .add(CheckoutEvent.removeCheckout(data.product));
+                                context.read<CheckoutBloc>().add(
+                                    CheckoutEvent.removeCheckout(data.product));
                                 // data.quantity--;
                                 // setState(() {});
                               }

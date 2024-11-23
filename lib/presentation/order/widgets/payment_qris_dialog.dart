@@ -15,9 +15,11 @@ import 'payment_success_dialog.dart';
 
 class PaymentQrisDialog extends StatefulWidget {
   final int price;
+  final String diskon;
   const PaymentQrisDialog({
     Key? key,
     required this.price,
+    required this.diskon,
   }) : super(key: key);
 
   @override
@@ -101,16 +103,18 @@ class _PaymentQrisDialogState extends State<PaymentQrisDialog> {
                                 totalPrice: total,
                                 idKasir: idKasir,
                                 namaKasir: namaKasir,
-                                transactionTime: DateFormat('yyyy-MM-ddTHH:mm:ss')
-                          .format(DateTime.now()),
+                                transactionTime:
+                                    DateFormat('yyyy-MM-ddTHH:mm:ss')
+                                        .format(DateTime.now()),
                                 isSync: false);
                             ProductLocalDatasource.instance
                                 .saveOrder(orderModel);
                             context.pop();
                             showDialog(
                               context: context,
-                              builder: (context) =>
-                                  const PaymentSuccessDialog(),
+                              builder: (context) => PaymentSuccessDialog(
+                                diskon: widget.diskon,
+                              ),
                             );
                           });
                         },

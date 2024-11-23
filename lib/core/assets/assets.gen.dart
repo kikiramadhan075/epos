@@ -30,6 +30,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/delete.svg
   SvgGenImage get delete => const SvgGenImage('assets/icons/delete.svg');
 
+  /// File path: assets/icons/diskon.svg
+  SvgGenImage get diskon => const SvgGenImage('assets/icons/diskon.svg');
+
   /// File path: assets/icons/done.svg
   SvgGenImage get done => const SvgGenImage('assets/icons/done.svg');
 
@@ -70,6 +73,7 @@ class $AssetsIconsGen {
         dashboard,
         debit,
         delete,
+        diskon,
         done,
         drink,
         food,
