@@ -21,6 +21,7 @@ mixin _$CheckoutEvent {
     required TResult Function() started,
     required TResult Function(Product product) addCheckout,
     required TResult Function(Product product) removeCheckout,
+    required TResult Function(Product? product) removeAllCheckout,
     required TResult Function(Discount discount) addDiscount,
     required TResult Function() removeDiscount,
   }) =>
@@ -30,6 +31,7 @@ mixin _$CheckoutEvent {
     TResult? Function()? started,
     TResult? Function(Product product)? addCheckout,
     TResult? Function(Product product)? removeCheckout,
+    TResult? Function(Product? product)? removeAllCheckout,
     TResult? Function(Discount discount)? addDiscount,
     TResult? Function()? removeDiscount,
   }) =>
@@ -39,6 +41,7 @@ mixin _$CheckoutEvent {
     TResult Function()? started,
     TResult Function(Product product)? addCheckout,
     TResult Function(Product product)? removeCheckout,
+    TResult Function(Product? product)? removeAllCheckout,
     TResult Function(Discount discount)? addDiscount,
     TResult Function()? removeDiscount,
     required TResult orElse(),
@@ -49,6 +52,7 @@ mixin _$CheckoutEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_AddCheckout value) addCheckout,
     required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_RemoveAllCheckout value) removeAllCheckout,
     required TResult Function(_AddDiscount value) addDiscount,
     required TResult Function(_RemoveDiscount value) removeDiscount,
   }) =>
@@ -58,6 +62,7 @@ mixin _$CheckoutEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(_AddCheckout value)? addCheckout,
     TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult? Function(_AddDiscount value)? addDiscount,
     TResult? Function(_RemoveDiscount value)? removeDiscount,
   }) =>
@@ -67,6 +72,7 @@ mixin _$CheckoutEvent {
     TResult Function(_Started value)? started,
     TResult Function(_AddCheckout value)? addCheckout,
     TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult Function(_AddDiscount value)? addDiscount,
     TResult Function(_RemoveDiscount value)? removeDiscount,
     required TResult orElse(),
@@ -133,6 +139,7 @@ class _$StartedImpl implements _Started {
     required TResult Function() started,
     required TResult Function(Product product) addCheckout,
     required TResult Function(Product product) removeCheckout,
+    required TResult Function(Product? product) removeAllCheckout,
     required TResult Function(Discount discount) addDiscount,
     required TResult Function() removeDiscount,
   }) {
@@ -145,6 +152,7 @@ class _$StartedImpl implements _Started {
     TResult? Function()? started,
     TResult? Function(Product product)? addCheckout,
     TResult? Function(Product product)? removeCheckout,
+    TResult? Function(Product? product)? removeAllCheckout,
     TResult? Function(Discount discount)? addDiscount,
     TResult? Function()? removeDiscount,
   }) {
@@ -157,6 +165,7 @@ class _$StartedImpl implements _Started {
     TResult Function()? started,
     TResult Function(Product product)? addCheckout,
     TResult Function(Product product)? removeCheckout,
+    TResult Function(Product? product)? removeAllCheckout,
     TResult Function(Discount discount)? addDiscount,
     TResult Function()? removeDiscount,
     required TResult orElse(),
@@ -173,6 +182,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_AddCheckout value) addCheckout,
     required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_RemoveAllCheckout value) removeAllCheckout,
     required TResult Function(_AddDiscount value) addDiscount,
     required TResult Function(_RemoveDiscount value) removeDiscount,
   }) {
@@ -185,6 +195,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(_AddCheckout value)? addCheckout,
     TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult? Function(_AddDiscount value)? addDiscount,
     TResult? Function(_RemoveDiscount value)? removeDiscount,
   }) {
@@ -197,6 +208,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_AddCheckout value)? addCheckout,
     TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult Function(_AddDiscount value)? addDiscount,
     TResult Function(_RemoveDiscount value)? removeDiscount,
     required TResult orElse(),
@@ -279,6 +291,7 @@ class _$AddCheckoutImpl implements _AddCheckout {
     required TResult Function() started,
     required TResult Function(Product product) addCheckout,
     required TResult Function(Product product) removeCheckout,
+    required TResult Function(Product? product) removeAllCheckout,
     required TResult Function(Discount discount) addDiscount,
     required TResult Function() removeDiscount,
   }) {
@@ -291,6 +304,7 @@ class _$AddCheckoutImpl implements _AddCheckout {
     TResult? Function()? started,
     TResult? Function(Product product)? addCheckout,
     TResult? Function(Product product)? removeCheckout,
+    TResult? Function(Product? product)? removeAllCheckout,
     TResult? Function(Discount discount)? addDiscount,
     TResult? Function()? removeDiscount,
   }) {
@@ -303,6 +317,7 @@ class _$AddCheckoutImpl implements _AddCheckout {
     TResult Function()? started,
     TResult Function(Product product)? addCheckout,
     TResult Function(Product product)? removeCheckout,
+    TResult Function(Product? product)? removeAllCheckout,
     TResult Function(Discount discount)? addDiscount,
     TResult Function()? removeDiscount,
     required TResult orElse(),
@@ -319,6 +334,7 @@ class _$AddCheckoutImpl implements _AddCheckout {
     required TResult Function(_Started value) started,
     required TResult Function(_AddCheckout value) addCheckout,
     required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_RemoveAllCheckout value) removeAllCheckout,
     required TResult Function(_AddDiscount value) addDiscount,
     required TResult Function(_RemoveDiscount value) removeDiscount,
   }) {
@@ -331,6 +347,7 @@ class _$AddCheckoutImpl implements _AddCheckout {
     TResult? Function(_Started value)? started,
     TResult? Function(_AddCheckout value)? addCheckout,
     TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult? Function(_AddDiscount value)? addDiscount,
     TResult? Function(_RemoveDiscount value)? removeDiscount,
   }) {
@@ -343,6 +360,7 @@ class _$AddCheckoutImpl implements _AddCheckout {
     TResult Function(_Started value)? started,
     TResult Function(_AddCheckout value)? addCheckout,
     TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult Function(_AddDiscount value)? addDiscount,
     TResult Function(_RemoveDiscount value)? removeDiscount,
     required TResult orElse(),
@@ -431,6 +449,7 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     required TResult Function() started,
     required TResult Function(Product product) addCheckout,
     required TResult Function(Product product) removeCheckout,
+    required TResult Function(Product? product) removeAllCheckout,
     required TResult Function(Discount discount) addDiscount,
     required TResult Function() removeDiscount,
   }) {
@@ -443,6 +462,7 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     TResult? Function()? started,
     TResult? Function(Product product)? addCheckout,
     TResult? Function(Product product)? removeCheckout,
+    TResult? Function(Product? product)? removeAllCheckout,
     TResult? Function(Discount discount)? addDiscount,
     TResult? Function()? removeDiscount,
   }) {
@@ -455,6 +475,7 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     TResult Function()? started,
     TResult Function(Product product)? addCheckout,
     TResult Function(Product product)? removeCheckout,
+    TResult Function(Product? product)? removeAllCheckout,
     TResult Function(Discount discount)? addDiscount,
     TResult Function()? removeDiscount,
     required TResult orElse(),
@@ -471,6 +492,7 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     required TResult Function(_Started value) started,
     required TResult Function(_AddCheckout value) addCheckout,
     required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_RemoveAllCheckout value) removeAllCheckout,
     required TResult Function(_AddDiscount value) addDiscount,
     required TResult Function(_RemoveDiscount value) removeDiscount,
   }) {
@@ -483,6 +505,7 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     TResult? Function(_Started value)? started,
     TResult? Function(_AddCheckout value)? addCheckout,
     TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult? Function(_AddDiscount value)? addDiscount,
     TResult? Function(_RemoveDiscount value)? removeDiscount,
   }) {
@@ -495,6 +518,7 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     TResult Function(_Started value)? started,
     TResult Function(_AddCheckout value)? addCheckout,
     TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult Function(_AddDiscount value)? addDiscount,
     TResult Function(_RemoveDiscount value)? removeDiscount,
     required TResult orElse(),
@@ -512,6 +536,165 @@ abstract class _RemoveCheckout implements CheckoutEvent {
   Product get product;
   @JsonKey(ignore: true)
   _$$RemoveCheckoutImplCopyWith<_$RemoveCheckoutImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveAllCheckoutImplCopyWith<$Res> {
+  factory _$$RemoveAllCheckoutImplCopyWith(_$RemoveAllCheckoutImpl value,
+          $Res Function(_$RemoveAllCheckoutImpl) then) =
+      __$$RemoveAllCheckoutImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Product? product});
+}
+
+/// @nodoc
+class __$$RemoveAllCheckoutImplCopyWithImpl<$Res>
+    extends _$CheckoutEventCopyWithImpl<$Res, _$RemoveAllCheckoutImpl>
+    implements _$$RemoveAllCheckoutImplCopyWith<$Res> {
+  __$$RemoveAllCheckoutImplCopyWithImpl(_$RemoveAllCheckoutImpl _value,
+      $Res Function(_$RemoveAllCheckoutImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? product = freezed,
+  }) {
+    return _then(_$RemoveAllCheckoutImpl(
+      freezed == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as Product?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RemoveAllCheckoutImpl implements _RemoveAllCheckout {
+  const _$RemoveAllCheckoutImpl(this.product);
+
+  @override
+  final Product? product;
+
+  @override
+  String toString() {
+    return 'CheckoutEvent.removeAllCheckout(product: $product)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveAllCheckoutImpl &&
+            (identical(other.product, product) || other.product == product));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, product);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveAllCheckoutImplCopyWith<_$RemoveAllCheckoutImpl> get copyWith =>
+      __$$RemoveAllCheckoutImplCopyWithImpl<_$RemoveAllCheckoutImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(Product product) addCheckout,
+    required TResult Function(Product product) removeCheckout,
+    required TResult Function(Product? product) removeAllCheckout,
+    required TResult Function(Discount discount) addDiscount,
+    required TResult Function() removeDiscount,
+  }) {
+    return removeAllCheckout(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(Product product)? addCheckout,
+    TResult? Function(Product product)? removeCheckout,
+    TResult? Function(Product? product)? removeAllCheckout,
+    TResult? Function(Discount discount)? addDiscount,
+    TResult? Function()? removeDiscount,
+  }) {
+    return removeAllCheckout?.call(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Product product)? addCheckout,
+    TResult Function(Product product)? removeCheckout,
+    TResult Function(Product? product)? removeAllCheckout,
+    TResult Function(Discount discount)? addDiscount,
+    TResult Function()? removeDiscount,
+    required TResult orElse(),
+  }) {
+    if (removeAllCheckout != null) {
+      return removeAllCheckout(product);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_AddCheckout value) addCheckout,
+    required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_RemoveAllCheckout value) removeAllCheckout,
+    required TResult Function(_AddDiscount value) addDiscount,
+    required TResult Function(_RemoveDiscount value) removeDiscount,
+  }) {
+    return removeAllCheckout(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_AddCheckout value)? addCheckout,
+    TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_RemoveAllCheckout value)? removeAllCheckout,
+    TResult? Function(_AddDiscount value)? addDiscount,
+    TResult? Function(_RemoveDiscount value)? removeDiscount,
+  }) {
+    return removeAllCheckout?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_AddCheckout value)? addCheckout,
+    TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_RemoveAllCheckout value)? removeAllCheckout,
+    TResult Function(_AddDiscount value)? addDiscount,
+    TResult Function(_RemoveDiscount value)? removeDiscount,
+    required TResult orElse(),
+  }) {
+    if (removeAllCheckout != null) {
+      return removeAllCheckout(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveAllCheckout implements CheckoutEvent {
+  const factory _RemoveAllCheckout(final Product? product) =
+      _$RemoveAllCheckoutImpl;
+
+  Product? get product;
+  @JsonKey(ignore: true)
+  _$$RemoveAllCheckoutImplCopyWith<_$RemoveAllCheckoutImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -583,6 +766,7 @@ class _$AddDiscountImpl implements _AddDiscount {
     required TResult Function() started,
     required TResult Function(Product product) addCheckout,
     required TResult Function(Product product) removeCheckout,
+    required TResult Function(Product? product) removeAllCheckout,
     required TResult Function(Discount discount) addDiscount,
     required TResult Function() removeDiscount,
   }) {
@@ -595,6 +779,7 @@ class _$AddDiscountImpl implements _AddDiscount {
     TResult? Function()? started,
     TResult? Function(Product product)? addCheckout,
     TResult? Function(Product product)? removeCheckout,
+    TResult? Function(Product? product)? removeAllCheckout,
     TResult? Function(Discount discount)? addDiscount,
     TResult? Function()? removeDiscount,
   }) {
@@ -607,6 +792,7 @@ class _$AddDiscountImpl implements _AddDiscount {
     TResult Function()? started,
     TResult Function(Product product)? addCheckout,
     TResult Function(Product product)? removeCheckout,
+    TResult Function(Product? product)? removeAllCheckout,
     TResult Function(Discount discount)? addDiscount,
     TResult Function()? removeDiscount,
     required TResult orElse(),
@@ -623,6 +809,7 @@ class _$AddDiscountImpl implements _AddDiscount {
     required TResult Function(_Started value) started,
     required TResult Function(_AddCheckout value) addCheckout,
     required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_RemoveAllCheckout value) removeAllCheckout,
     required TResult Function(_AddDiscount value) addDiscount,
     required TResult Function(_RemoveDiscount value) removeDiscount,
   }) {
@@ -635,6 +822,7 @@ class _$AddDiscountImpl implements _AddDiscount {
     TResult? Function(_Started value)? started,
     TResult? Function(_AddCheckout value)? addCheckout,
     TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult? Function(_AddDiscount value)? addDiscount,
     TResult? Function(_RemoveDiscount value)? removeDiscount,
   }) {
@@ -647,6 +835,7 @@ class _$AddDiscountImpl implements _AddDiscount {
     TResult Function(_Started value)? started,
     TResult Function(_AddCheckout value)? addCheckout,
     TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult Function(_AddDiscount value)? addDiscount,
     TResult Function(_RemoveDiscount value)? removeDiscount,
     required TResult orElse(),
@@ -708,6 +897,7 @@ class _$RemoveDiscountImpl implements _RemoveDiscount {
     required TResult Function() started,
     required TResult Function(Product product) addCheckout,
     required TResult Function(Product product) removeCheckout,
+    required TResult Function(Product? product) removeAllCheckout,
     required TResult Function(Discount discount) addDiscount,
     required TResult Function() removeDiscount,
   }) {
@@ -720,6 +910,7 @@ class _$RemoveDiscountImpl implements _RemoveDiscount {
     TResult? Function()? started,
     TResult? Function(Product product)? addCheckout,
     TResult? Function(Product product)? removeCheckout,
+    TResult? Function(Product? product)? removeAllCheckout,
     TResult? Function(Discount discount)? addDiscount,
     TResult? Function()? removeDiscount,
   }) {
@@ -732,6 +923,7 @@ class _$RemoveDiscountImpl implements _RemoveDiscount {
     TResult Function()? started,
     TResult Function(Product product)? addCheckout,
     TResult Function(Product product)? removeCheckout,
+    TResult Function(Product? product)? removeAllCheckout,
     TResult Function(Discount discount)? addDiscount,
     TResult Function()? removeDiscount,
     required TResult orElse(),
@@ -748,6 +940,7 @@ class _$RemoveDiscountImpl implements _RemoveDiscount {
     required TResult Function(_Started value) started,
     required TResult Function(_AddCheckout value) addCheckout,
     required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_RemoveAllCheckout value) removeAllCheckout,
     required TResult Function(_AddDiscount value) addDiscount,
     required TResult Function(_RemoveDiscount value) removeDiscount,
   }) {
@@ -760,6 +953,7 @@ class _$RemoveDiscountImpl implements _RemoveDiscount {
     TResult? Function(_Started value)? started,
     TResult? Function(_AddCheckout value)? addCheckout,
     TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult? Function(_AddDiscount value)? addDiscount,
     TResult? Function(_RemoveDiscount value)? removeDiscount,
   }) {
@@ -772,6 +966,7 @@ class _$RemoveDiscountImpl implements _RemoveDiscount {
     TResult Function(_Started value)? started,
     TResult Function(_AddCheckout value)? addCheckout,
     TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult Function(_AddDiscount value)? addDiscount,
     TResult Function(_RemoveDiscount value)? removeDiscount,
     required TResult orElse(),

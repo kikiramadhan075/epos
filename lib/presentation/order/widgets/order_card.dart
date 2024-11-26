@@ -90,7 +90,7 @@ class OrderCard extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              if (data.quantity > 1) {
+                              if (data.quantity > 0) {
                                 context.read<CheckoutBloc>().add(
                                     CheckoutEvent.removeCheckout(data.product));
                                 // data.quantity--;

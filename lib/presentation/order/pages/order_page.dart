@@ -44,7 +44,11 @@ class _OrderPageState extends State<OrderPage> {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context
+                  .read<CheckoutBloc>()
+                  .add(const CheckoutEvent.removeAllCheckout(null));
+            },
             icon: Assets.icons.delete.svg(),
           ),
         ],
@@ -71,6 +75,8 @@ class _OrderPageState extends State<OrderPage> {
                 data: data[index],
                 discount: double.parse(discount?.value ?? '0'),
                 onDeleteTap: () {
+                  context.read<CheckoutBloc>().add(
+                      CheckoutEvent.removeAllCheckout(data[index].product));
                   // orders.removeAt(index);
                   // setState(() {});
                 },
