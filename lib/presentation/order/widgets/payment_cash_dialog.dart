@@ -17,8 +17,13 @@ import 'payment_success_dialog.dart';
 class PaymentCashDialog extends StatefulWidget {
   final int price;
   final String diskon;
-  const PaymentCashDialog(
-      {super.key, required this.price, required this.diskon});
+  final String pajak;
+  const PaymentCashDialog({
+    super.key,
+    required this.price,
+    required this.diskon,
+    required this.pajak,
+  });
 
   @override
   State<PaymentCashDialog> createState() => _PaymentCashDialogState();
@@ -82,14 +87,15 @@ class _PaymentCashDialogState extends State<PaymentCashDialog> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Button.filled(
-                onPressed: () {},
-                label: 'Uang Pas',
-                disabled: true,
-                textColor: AppColors.primary,
-                fontSize: 13.0,
-                width: 112.0,
-                height: 50.0,
+              Flexible(
+                child: Button.filled(
+                  onPressed: () {},
+                  label: 'Uang Pas',
+                  disabled: true,
+                  textColor: AppColors.primary,
+                  fontSize: 13.0,
+                  height: 50.0,
+                ),
               ),
               const SpaceWidth(4.0),
               Flexible(
@@ -102,6 +108,26 @@ class _PaymentCashDialogState extends State<PaymentCashDialog> {
                   height: 50.0,
                 ),
               ),
+            ],
+          ),
+          const SpaceHeight(16.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Flexible(
+                child: Button.filled(
+                  onPressed: () {},
+                  label: widget.diskon == '0'
+                      ? 'Diskon 0%'
+                      : 'Diskon ${widget.diskon}%',
+                  disabled: true,
+                  textColor: AppColors.primary,
+                  fontSize: 13.0,
+                  height: 50.0,
+                ),
+              ),
+              const SpaceWidth(4.0),
+              const Flexible(child: SizedBox()),
             ],
           ),
           const SpaceHeight(30.0),
@@ -128,6 +154,7 @@ class _PaymentCashDialogState extends State<PaymentCashDialog> {
                     context: context,
                     builder: (context) => PaymentSuccessDialog(
                       diskon: widget.diskon,
+                      pajak: widget.pajak,
                     ),
                   );
                 },

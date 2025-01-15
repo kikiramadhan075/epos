@@ -16,7 +16,9 @@ import '../../home/pages/dashboard_page.dart';
 
 class PaymentSuccessDialog extends StatelessWidget {
   final String diskon;
-  const PaymentSuccessDialog({super.key, required this.diskon});
+  final String pajak;
+  const PaymentSuccessDialog(
+      {super.key, required this.diskon, required this.pajak});
 
   @override
   Widget build(BuildContext context) {

@@ -24,6 +24,7 @@ mixin _$CheckoutEvent {
     required TResult Function(Product? product) removeAllCheckout,
     required TResult Function(Discount discount) addDiscount,
     required TResult Function() removeDiscount,
+    required TResult Function(double? tax) setTax,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$CheckoutEvent {
     TResult? Function(Product? product)? removeAllCheckout,
     TResult? Function(Discount discount)? addDiscount,
     TResult? Function()? removeDiscount,
+    TResult? Function(double? tax)? setTax,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$CheckoutEvent {
     TResult Function(Product? product)? removeAllCheckout,
     TResult Function(Discount discount)? addDiscount,
     TResult Function()? removeDiscount,
+    TResult Function(double? tax)? setTax,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +58,7 @@ mixin _$CheckoutEvent {
     required TResult Function(_RemoveAllCheckout value) removeAllCheckout,
     required TResult Function(_AddDiscount value) addDiscount,
     required TResult Function(_RemoveDiscount value) removeDiscount,
+    required TResult Function(_SetTax value) setTax,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +69,7 @@ mixin _$CheckoutEvent {
     TResult? Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult? Function(_AddDiscount value)? addDiscount,
     TResult? Function(_RemoveDiscount value)? removeDiscount,
+    TResult? Function(_SetTax value)? setTax,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +80,7 @@ mixin _$CheckoutEvent {
     TResult Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult Function(_AddDiscount value)? addDiscount,
     TResult Function(_RemoveDiscount value)? removeDiscount,
+    TResult Function(_SetTax value)? setTax,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -116,12 +122,18 @@ class __$$StartedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
+class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   const _$StartedImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CheckoutEvent.started()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'CheckoutEvent.started'));
   }
 
   @override
@@ -142,6 +154,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(Product? product) removeAllCheckout,
     required TResult Function(Discount discount) addDiscount,
     required TResult Function() removeDiscount,
+    required TResult Function(double? tax) setTax,
   }) {
     return started();
   }
@@ -155,6 +168,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(Product? product)? removeAllCheckout,
     TResult? Function(Discount discount)? addDiscount,
     TResult? Function()? removeDiscount,
+    TResult? Function(double? tax)? setTax,
   }) {
     return started?.call();
   }
@@ -168,6 +182,7 @@ class _$StartedImpl implements _Started {
     TResult Function(Product? product)? removeAllCheckout,
     TResult Function(Discount discount)? addDiscount,
     TResult Function()? removeDiscount,
+    TResult Function(double? tax)? setTax,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -185,6 +200,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_RemoveAllCheckout value) removeAllCheckout,
     required TResult Function(_AddDiscount value) addDiscount,
     required TResult Function(_RemoveDiscount value) removeDiscount,
+    required TResult Function(_SetTax value) setTax,
   }) {
     return started(this);
   }
@@ -198,6 +214,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult? Function(_AddDiscount value)? addDiscount,
     TResult? Function(_RemoveDiscount value)? removeDiscount,
+    TResult? Function(_SetTax value)? setTax,
   }) {
     return started?.call(this);
   }
@@ -211,6 +228,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult Function(_AddDiscount value)? addDiscount,
     TResult Function(_RemoveDiscount value)? removeDiscount,
+    TResult Function(_SetTax value)? setTax,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -257,15 +275,23 @@ class __$$AddCheckoutImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddCheckoutImpl implements _AddCheckout {
+class _$AddCheckoutImpl with DiagnosticableTreeMixin implements _AddCheckout {
   const _$AddCheckoutImpl(this.product);
 
   @override
   final Product product;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CheckoutEvent.addCheckout(product: $product)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CheckoutEvent.addCheckout'))
+      ..add(DiagnosticsProperty('product', product));
   }
 
   @override
@@ -294,6 +320,7 @@ class _$AddCheckoutImpl implements _AddCheckout {
     required TResult Function(Product? product) removeAllCheckout,
     required TResult Function(Discount discount) addDiscount,
     required TResult Function() removeDiscount,
+    required TResult Function(double? tax) setTax,
   }) {
     return addCheckout(product);
   }
@@ -307,6 +334,7 @@ class _$AddCheckoutImpl implements _AddCheckout {
     TResult? Function(Product? product)? removeAllCheckout,
     TResult? Function(Discount discount)? addDiscount,
     TResult? Function()? removeDiscount,
+    TResult? Function(double? tax)? setTax,
   }) {
     return addCheckout?.call(product);
   }
@@ -320,6 +348,7 @@ class _$AddCheckoutImpl implements _AddCheckout {
     TResult Function(Product? product)? removeAllCheckout,
     TResult Function(Discount discount)? addDiscount,
     TResult Function()? removeDiscount,
+    TResult Function(double? tax)? setTax,
     required TResult orElse(),
   }) {
     if (addCheckout != null) {
@@ -337,6 +366,7 @@ class _$AddCheckoutImpl implements _AddCheckout {
     required TResult Function(_RemoveAllCheckout value) removeAllCheckout,
     required TResult Function(_AddDiscount value) addDiscount,
     required TResult Function(_RemoveDiscount value) removeDiscount,
+    required TResult Function(_SetTax value) setTax,
   }) {
     return addCheckout(this);
   }
@@ -350,6 +380,7 @@ class _$AddCheckoutImpl implements _AddCheckout {
     TResult? Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult? Function(_AddDiscount value)? addDiscount,
     TResult? Function(_RemoveDiscount value)? removeDiscount,
+    TResult? Function(_SetTax value)? setTax,
   }) {
     return addCheckout?.call(this);
   }
@@ -363,6 +394,7 @@ class _$AddCheckoutImpl implements _AddCheckout {
     TResult Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult Function(_AddDiscount value)? addDiscount,
     TResult Function(_RemoveDiscount value)? removeDiscount,
+    TResult Function(_SetTax value)? setTax,
     required TResult orElse(),
   }) {
     if (addCheckout != null) {
@@ -414,15 +446,25 @@ class __$$RemoveCheckoutImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RemoveCheckoutImpl implements _RemoveCheckout {
+class _$RemoveCheckoutImpl
+    with DiagnosticableTreeMixin
+    implements _RemoveCheckout {
   const _$RemoveCheckoutImpl(this.product);
 
   @override
   final Product product;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CheckoutEvent.removeCheckout(product: $product)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CheckoutEvent.removeCheckout'))
+      ..add(DiagnosticsProperty('product', product));
   }
 
   @override
@@ -452,6 +494,7 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     required TResult Function(Product? product) removeAllCheckout,
     required TResult Function(Discount discount) addDiscount,
     required TResult Function() removeDiscount,
+    required TResult Function(double? tax) setTax,
   }) {
     return removeCheckout(product);
   }
@@ -465,6 +508,7 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     TResult? Function(Product? product)? removeAllCheckout,
     TResult? Function(Discount discount)? addDiscount,
     TResult? Function()? removeDiscount,
+    TResult? Function(double? tax)? setTax,
   }) {
     return removeCheckout?.call(product);
   }
@@ -478,6 +522,7 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     TResult Function(Product? product)? removeAllCheckout,
     TResult Function(Discount discount)? addDiscount,
     TResult Function()? removeDiscount,
+    TResult Function(double? tax)? setTax,
     required TResult orElse(),
   }) {
     if (removeCheckout != null) {
@@ -495,6 +540,7 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     required TResult Function(_RemoveAllCheckout value) removeAllCheckout,
     required TResult Function(_AddDiscount value) addDiscount,
     required TResult Function(_RemoveDiscount value) removeDiscount,
+    required TResult Function(_SetTax value) setTax,
   }) {
     return removeCheckout(this);
   }
@@ -508,6 +554,7 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     TResult? Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult? Function(_AddDiscount value)? addDiscount,
     TResult? Function(_RemoveDiscount value)? removeDiscount,
+    TResult? Function(_SetTax value)? setTax,
   }) {
     return removeCheckout?.call(this);
   }
@@ -521,6 +568,7 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
     TResult Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult Function(_AddDiscount value)? addDiscount,
     TResult Function(_RemoveDiscount value)? removeDiscount,
+    TResult Function(_SetTax value)? setTax,
     required TResult orElse(),
   }) {
     if (removeCheckout != null) {
@@ -572,15 +620,25 @@ class __$$RemoveAllCheckoutImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RemoveAllCheckoutImpl implements _RemoveAllCheckout {
+class _$RemoveAllCheckoutImpl
+    with DiagnosticableTreeMixin
+    implements _RemoveAllCheckout {
   const _$RemoveAllCheckoutImpl(this.product);
 
   @override
   final Product? product;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CheckoutEvent.removeAllCheckout(product: $product)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CheckoutEvent.removeAllCheckout'))
+      ..add(DiagnosticsProperty('product', product));
   }
 
   @override
@@ -610,6 +668,7 @@ class _$RemoveAllCheckoutImpl implements _RemoveAllCheckout {
     required TResult Function(Product? product) removeAllCheckout,
     required TResult Function(Discount discount) addDiscount,
     required TResult Function() removeDiscount,
+    required TResult Function(double? tax) setTax,
   }) {
     return removeAllCheckout(product);
   }
@@ -623,6 +682,7 @@ class _$RemoveAllCheckoutImpl implements _RemoveAllCheckout {
     TResult? Function(Product? product)? removeAllCheckout,
     TResult? Function(Discount discount)? addDiscount,
     TResult? Function()? removeDiscount,
+    TResult? Function(double? tax)? setTax,
   }) {
     return removeAllCheckout?.call(product);
   }
@@ -636,6 +696,7 @@ class _$RemoveAllCheckoutImpl implements _RemoveAllCheckout {
     TResult Function(Product? product)? removeAllCheckout,
     TResult Function(Discount discount)? addDiscount,
     TResult Function()? removeDiscount,
+    TResult Function(double? tax)? setTax,
     required TResult orElse(),
   }) {
     if (removeAllCheckout != null) {
@@ -653,6 +714,7 @@ class _$RemoveAllCheckoutImpl implements _RemoveAllCheckout {
     required TResult Function(_RemoveAllCheckout value) removeAllCheckout,
     required TResult Function(_AddDiscount value) addDiscount,
     required TResult Function(_RemoveDiscount value) removeDiscount,
+    required TResult Function(_SetTax value) setTax,
   }) {
     return removeAllCheckout(this);
   }
@@ -666,6 +728,7 @@ class _$RemoveAllCheckoutImpl implements _RemoveAllCheckout {
     TResult? Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult? Function(_AddDiscount value)? addDiscount,
     TResult? Function(_RemoveDiscount value)? removeDiscount,
+    TResult? Function(_SetTax value)? setTax,
   }) {
     return removeAllCheckout?.call(this);
   }
@@ -679,6 +742,7 @@ class _$RemoveAllCheckoutImpl implements _RemoveAllCheckout {
     TResult Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult Function(_AddDiscount value)? addDiscount,
     TResult Function(_RemoveDiscount value)? removeDiscount,
+    TResult Function(_SetTax value)? setTax,
     required TResult orElse(),
   }) {
     if (removeAllCheckout != null) {
@@ -731,15 +795,23 @@ class __$$AddDiscountImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddDiscountImpl implements _AddDiscount {
+class _$AddDiscountImpl with DiagnosticableTreeMixin implements _AddDiscount {
   const _$AddDiscountImpl(this.discount);
 
   @override
   final Discount discount;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CheckoutEvent.addDiscount(discount: $discount)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CheckoutEvent.addDiscount'))
+      ..add(DiagnosticsProperty('discount', discount));
   }
 
   @override
@@ -769,6 +841,7 @@ class _$AddDiscountImpl implements _AddDiscount {
     required TResult Function(Product? product) removeAllCheckout,
     required TResult Function(Discount discount) addDiscount,
     required TResult Function() removeDiscount,
+    required TResult Function(double? tax) setTax,
   }) {
     return addDiscount(discount);
   }
@@ -782,6 +855,7 @@ class _$AddDiscountImpl implements _AddDiscount {
     TResult? Function(Product? product)? removeAllCheckout,
     TResult? Function(Discount discount)? addDiscount,
     TResult? Function()? removeDiscount,
+    TResult? Function(double? tax)? setTax,
   }) {
     return addDiscount?.call(discount);
   }
@@ -795,6 +869,7 @@ class _$AddDiscountImpl implements _AddDiscount {
     TResult Function(Product? product)? removeAllCheckout,
     TResult Function(Discount discount)? addDiscount,
     TResult Function()? removeDiscount,
+    TResult Function(double? tax)? setTax,
     required TResult orElse(),
   }) {
     if (addDiscount != null) {
@@ -812,6 +887,7 @@ class _$AddDiscountImpl implements _AddDiscount {
     required TResult Function(_RemoveAllCheckout value) removeAllCheckout,
     required TResult Function(_AddDiscount value) addDiscount,
     required TResult Function(_RemoveDiscount value) removeDiscount,
+    required TResult Function(_SetTax value) setTax,
   }) {
     return addDiscount(this);
   }
@@ -825,6 +901,7 @@ class _$AddDiscountImpl implements _AddDiscount {
     TResult? Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult? Function(_AddDiscount value)? addDiscount,
     TResult? Function(_RemoveDiscount value)? removeDiscount,
+    TResult? Function(_SetTax value)? setTax,
   }) {
     return addDiscount?.call(this);
   }
@@ -838,6 +915,7 @@ class _$AddDiscountImpl implements _AddDiscount {
     TResult Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult Function(_AddDiscount value)? addDiscount,
     TResult Function(_RemoveDiscount value)? removeDiscount,
+    TResult Function(_SetTax value)? setTax,
     required TResult orElse(),
   }) {
     if (addDiscount != null) {
@@ -874,12 +952,20 @@ class __$$RemoveDiscountImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RemoveDiscountImpl implements _RemoveDiscount {
+class _$RemoveDiscountImpl
+    with DiagnosticableTreeMixin
+    implements _RemoveDiscount {
   const _$RemoveDiscountImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CheckoutEvent.removeDiscount()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'CheckoutEvent.removeDiscount'));
   }
 
   @override
@@ -900,6 +986,7 @@ class _$RemoveDiscountImpl implements _RemoveDiscount {
     required TResult Function(Product? product) removeAllCheckout,
     required TResult Function(Discount discount) addDiscount,
     required TResult Function() removeDiscount,
+    required TResult Function(double? tax) setTax,
   }) {
     return removeDiscount();
   }
@@ -913,6 +1000,7 @@ class _$RemoveDiscountImpl implements _RemoveDiscount {
     TResult? Function(Product? product)? removeAllCheckout,
     TResult? Function(Discount discount)? addDiscount,
     TResult? Function()? removeDiscount,
+    TResult? Function(double? tax)? setTax,
   }) {
     return removeDiscount?.call();
   }
@@ -926,6 +1014,7 @@ class _$RemoveDiscountImpl implements _RemoveDiscount {
     TResult Function(Product? product)? removeAllCheckout,
     TResult Function(Discount discount)? addDiscount,
     TResult Function()? removeDiscount,
+    TResult Function(double? tax)? setTax,
     required TResult orElse(),
   }) {
     if (removeDiscount != null) {
@@ -943,6 +1032,7 @@ class _$RemoveDiscountImpl implements _RemoveDiscount {
     required TResult Function(_RemoveAllCheckout value) removeAllCheckout,
     required TResult Function(_AddDiscount value) addDiscount,
     required TResult Function(_RemoveDiscount value) removeDiscount,
+    required TResult Function(_SetTax value) setTax,
   }) {
     return removeDiscount(this);
   }
@@ -956,6 +1046,7 @@ class _$RemoveDiscountImpl implements _RemoveDiscount {
     TResult? Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult? Function(_AddDiscount value)? addDiscount,
     TResult? Function(_RemoveDiscount value)? removeDiscount,
+    TResult? Function(_SetTax value)? setTax,
   }) {
     return removeDiscount?.call(this);
   }
@@ -969,6 +1060,7 @@ class _$RemoveDiscountImpl implements _RemoveDiscount {
     TResult Function(_RemoveAllCheckout value)? removeAllCheckout,
     TResult Function(_AddDiscount value)? addDiscount,
     TResult Function(_RemoveDiscount value)? removeDiscount,
+    TResult Function(_SetTax value)? setTax,
     required TResult orElse(),
   }) {
     if (removeDiscount != null) {
@@ -983,13 +1075,184 @@ abstract class _RemoveDiscount implements CheckoutEvent {
 }
 
 /// @nodoc
+abstract class _$$SetTaxImplCopyWith<$Res> {
+  factory _$$SetTaxImplCopyWith(
+          _$SetTaxImpl value, $Res Function(_$SetTaxImpl) then) =
+      __$$SetTaxImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({double? tax});
+}
+
+/// @nodoc
+class __$$SetTaxImplCopyWithImpl<$Res>
+    extends _$CheckoutEventCopyWithImpl<$Res, _$SetTaxImpl>
+    implements _$$SetTaxImplCopyWith<$Res> {
+  __$$SetTaxImplCopyWithImpl(
+      _$SetTaxImpl _value, $Res Function(_$SetTaxImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? tax = freezed,
+  }) {
+    return _then(_$SetTaxImpl(
+      freezed == tax
+          ? _value.tax
+          : tax // ignore: cast_nullable_to_non_nullable
+              as double?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SetTaxImpl with DiagnosticableTreeMixin implements _SetTax {
+  const _$SetTaxImpl(this.tax);
+
+  @override
+  final double? tax;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CheckoutEvent.setTax(tax: $tax)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CheckoutEvent.setTax'))
+      ..add(DiagnosticsProperty('tax', tax));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SetTaxImpl &&
+            (identical(other.tax, tax) || other.tax == tax));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, tax);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SetTaxImplCopyWith<_$SetTaxImpl> get copyWith =>
+      __$$SetTaxImplCopyWithImpl<_$SetTaxImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(Product product) addCheckout,
+    required TResult Function(Product product) removeCheckout,
+    required TResult Function(Product? product) removeAllCheckout,
+    required TResult Function(Discount discount) addDiscount,
+    required TResult Function() removeDiscount,
+    required TResult Function(double? tax) setTax,
+  }) {
+    return setTax(tax);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(Product product)? addCheckout,
+    TResult? Function(Product product)? removeCheckout,
+    TResult? Function(Product? product)? removeAllCheckout,
+    TResult? Function(Discount discount)? addDiscount,
+    TResult? Function()? removeDiscount,
+    TResult? Function(double? tax)? setTax,
+  }) {
+    return setTax?.call(tax);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(Product product)? addCheckout,
+    TResult Function(Product product)? removeCheckout,
+    TResult Function(Product? product)? removeAllCheckout,
+    TResult Function(Discount discount)? addDiscount,
+    TResult Function()? removeDiscount,
+    TResult Function(double? tax)? setTax,
+    required TResult orElse(),
+  }) {
+    if (setTax != null) {
+      return setTax(tax);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_AddCheckout value) addCheckout,
+    required TResult Function(_RemoveCheckout value) removeCheckout,
+    required TResult Function(_RemoveAllCheckout value) removeAllCheckout,
+    required TResult Function(_AddDiscount value) addDiscount,
+    required TResult Function(_RemoveDiscount value) removeDiscount,
+    required TResult Function(_SetTax value) setTax,
+  }) {
+    return setTax(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_AddCheckout value)? addCheckout,
+    TResult? Function(_RemoveCheckout value)? removeCheckout,
+    TResult? Function(_RemoveAllCheckout value)? removeAllCheckout,
+    TResult? Function(_AddDiscount value)? addDiscount,
+    TResult? Function(_RemoveDiscount value)? removeDiscount,
+    TResult? Function(_SetTax value)? setTax,
+  }) {
+    return setTax?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_AddCheckout value)? addCheckout,
+    TResult Function(_RemoveCheckout value)? removeCheckout,
+    TResult Function(_RemoveAllCheckout value)? removeAllCheckout,
+    TResult Function(_AddDiscount value)? addDiscount,
+    TResult Function(_RemoveDiscount value)? removeDiscount,
+    TResult Function(_SetTax value)? setTax,
+    required TResult orElse(),
+  }) {
+    if (setTax != null) {
+      return setTax(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetTax implements CheckoutEvent {
+  const factory _SetTax(final double? tax) = _$SetTaxImpl;
+
+  double? get tax;
+  @JsonKey(ignore: true)
+  _$$SetTaxImplCopyWith<_$SetTaxImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$CheckoutState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<OrderItem> products, int totalQuantity,
-            int totalPrice, Discount? discount)
+            int totalPrice, Discount? discount, double? tax)
         success,
     required TResult Function(String message) error,
   }) =>
@@ -999,7 +1262,7 @@ mixin _$CheckoutState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<OrderItem> products, int totalQuantity,
-            int totalPrice, Discount? discount)?
+            int totalPrice, Discount? discount, double? tax)?
         success,
     TResult? Function(String message)? error,
   }) =>
@@ -1009,7 +1272,7 @@ mixin _$CheckoutState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<OrderItem> products, int totalQuantity,
-            int totalPrice, Discount? discount)?
+            int totalPrice, Discount? discount, double? tax)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -1078,12 +1341,18 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   const _$InitialImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CheckoutState.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'CheckoutState.initial'));
   }
 
   @override
@@ -1101,7 +1370,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<OrderItem> products, int totalQuantity,
-            int totalPrice, Discount? discount)
+            int totalPrice, Discount? discount, double? tax)
         success,
     required TResult Function(String message) error,
   }) {
@@ -1114,7 +1383,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<OrderItem> products, int totalQuantity,
-            int totalPrice, Discount? discount)?
+            int totalPrice, Discount? discount, double? tax)?
         success,
     TResult? Function(String message)? error,
   }) {
@@ -1127,7 +1396,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<OrderItem> products, int totalQuantity,
-            int totalPrice, Discount? discount)?
+            int totalPrice, Discount? discount, double? tax)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -1198,12 +1467,18 @@ class __$$LoadingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadingImpl implements _Loading {
+class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   const _$LoadingImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CheckoutState.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'CheckoutState.loading'));
   }
 
   @override
@@ -1221,7 +1496,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<OrderItem> products, int totalQuantity,
-            int totalPrice, Discount? discount)
+            int totalPrice, Discount? discount, double? tax)
         success,
     required TResult Function(String message) error,
   }) {
@@ -1234,7 +1509,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<OrderItem> products, int totalQuantity,
-            int totalPrice, Discount? discount)?
+            int totalPrice, Discount? discount, double? tax)?
         success,
     TResult? Function(String message)? error,
   }) {
@@ -1247,7 +1522,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<OrderItem> products, int totalQuantity,
-            int totalPrice, Discount? discount)?
+            int totalPrice, Discount? discount, double? tax)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -1310,7 +1585,8 @@ abstract class _$$SuccessImplCopyWith<$Res> {
       {List<OrderItem> products,
       int totalQuantity,
       int totalPrice,
-      Discount? discount});
+      Discount? discount,
+      double? tax});
 }
 
 /// @nodoc
@@ -1328,6 +1604,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
     Object? totalQuantity = null,
     Object? totalPrice = null,
     Object? discount = freezed,
+    Object? tax = freezed,
   }) {
     return _then(_$SuccessImpl(
       null == products
@@ -1346,15 +1623,19 @@ class __$$SuccessImplCopyWithImpl<$Res>
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as Discount?,
+      freezed == tax
+          ? _value.tax
+          : tax // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$SuccessImpl implements _Success {
+class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
   const _$SuccessImpl(final List<OrderItem> products, this.totalQuantity,
-      this.totalPrice, this.discount)
+      this.totalPrice, this.discount, this.tax)
       : _products = products;
 
   final List<OrderItem> _products;
@@ -1371,10 +1652,24 @@ class _$SuccessImpl implements _Success {
   final int totalPrice;
   @override
   final Discount? discount;
+  @override
+  final double? tax;
 
   @override
-  String toString() {
-    return 'CheckoutState.success(products: $products, totalQuantity: $totalQuantity, totalPrice: $totalPrice, discount: $discount)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CheckoutState.success(products: $products, totalQuantity: $totalQuantity, totalPrice: $totalPrice, discount: $discount, tax: $tax)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CheckoutState.success'))
+      ..add(DiagnosticsProperty('products', products))
+      ..add(DiagnosticsProperty('totalQuantity', totalQuantity))
+      ..add(DiagnosticsProperty('totalPrice', totalPrice))
+      ..add(DiagnosticsProperty('discount', discount))
+      ..add(DiagnosticsProperty('tax', tax));
   }
 
   @override
@@ -1388,7 +1683,8 @@ class _$SuccessImpl implements _Success {
             (identical(other.totalPrice, totalPrice) ||
                 other.totalPrice == totalPrice) &&
             (identical(other.discount, discount) ||
-                other.discount == discount));
+                other.discount == discount) &&
+            (identical(other.tax, tax) || other.tax == tax));
   }
 
   @override
@@ -1397,7 +1693,8 @@ class _$SuccessImpl implements _Success {
       const DeepCollectionEquality().hash(_products),
       totalQuantity,
       totalPrice,
-      discount);
+      discount,
+      tax);
 
   @JsonKey(ignore: true)
   @override
@@ -1411,11 +1708,11 @@ class _$SuccessImpl implements _Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<OrderItem> products, int totalQuantity,
-            int totalPrice, Discount? discount)
+            int totalPrice, Discount? discount, double? tax)
         success,
     required TResult Function(String message) error,
   }) {
-    return success(products, totalQuantity, totalPrice, discount);
+    return success(products, totalQuantity, totalPrice, discount, tax);
   }
 
   @override
@@ -1424,11 +1721,11 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<OrderItem> products, int totalQuantity,
-            int totalPrice, Discount? discount)?
+            int totalPrice, Discount? discount, double? tax)?
         success,
     TResult? Function(String message)? error,
   }) {
-    return success?.call(products, totalQuantity, totalPrice, discount);
+    return success?.call(products, totalQuantity, totalPrice, discount, tax);
   }
 
   @override
@@ -1437,13 +1734,13 @@ class _$SuccessImpl implements _Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<OrderItem> products, int totalQuantity,
-            int totalPrice, Discount? discount)?
+            int totalPrice, Discount? discount, double? tax)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(products, totalQuantity, totalPrice, discount);
+      return success(products, totalQuantity, totalPrice, discount, tax);
     }
     return orElse();
   }
@@ -1491,12 +1788,14 @@ abstract class _Success implements CheckoutState {
       final List<OrderItem> products,
       final int totalQuantity,
       final int totalPrice,
-      final Discount? discount) = _$SuccessImpl;
+      final Discount? discount,
+      final double? tax) = _$SuccessImpl;
 
   List<OrderItem> get products;
   int get totalQuantity;
   int get totalPrice;
   Discount? get discount;
+  double? get tax;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1535,15 +1834,23 @@ class __$$ErrorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorImpl implements _Error {
+class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
   const _$ErrorImpl(this.message);
 
   @override
   final String message;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'CheckoutState.error(message: $message)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CheckoutState.error'))
+      ..add(DiagnosticsProperty('message', message));
   }
 
   @override
@@ -1569,7 +1876,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<OrderItem> products, int totalQuantity,
-            int totalPrice, Discount? discount)
+            int totalPrice, Discount? discount, double? tax)
         success,
     required TResult Function(String message) error,
   }) {
@@ -1582,7 +1889,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<OrderItem> products, int totalQuantity,
-            int totalPrice, Discount? discount)?
+            int totalPrice, Discount? discount, double? tax)?
         success,
     TResult? Function(String message)? error,
   }) {
@@ -1595,7 +1902,7 @@ class _$ErrorImpl implements _Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<OrderItem> products, int totalQuantity,
-            int totalPrice, Discount? discount)?
+            int totalPrice, Discount? discount, double? tax)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),

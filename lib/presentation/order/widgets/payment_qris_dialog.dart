@@ -114,6 +114,7 @@ class _PaymentQrisDialogState extends State<PaymentQrisDialog> {
                               context: context,
                               builder: (context) => PaymentSuccessDialog(
                                 diskon: widget.diskon,
+                                pajak: '',
                               ),
                             );
                           });

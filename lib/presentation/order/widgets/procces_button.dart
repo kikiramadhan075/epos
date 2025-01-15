@@ -41,7 +41,7 @@ class ProcessButton extends StatelessWidget {
                       ),
                     );
                   },
-                  success: (data, qty, total, discount) {
+                  success: (data, qty, total, discount, tax) {
                     return Text(
                       total.currencyFormatRp,
                       style: const TextStyle(

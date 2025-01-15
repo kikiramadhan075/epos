@@ -3,6 +3,7 @@ import 'package:epos/data/datasources/auth_remote_datasources.dart';
 import 'package:epos/data/datasources/discount_remote_datasource.dart';
 import 'package:epos/data/datasources/order_remote_datasource.dart';
 import 'package:epos/data/datasources/product_remote_datasource.dart';
+import 'package:epos/data/datasources/tax_remote_datasource.dart';
 import 'package:epos/presentation/auth/pages/login_page.dart';
 import 'package:epos/presentation/history/bloc/history/history_bloc.dart';
 import 'package:epos/presentation/home/bloc/checkout/checkout_bloc.dart';
@@ -13,6 +14,7 @@ import 'package:epos/presentation/order/bloc/order/order_bloc.dart';
 import 'package:epos/presentation/order/qris/bloc/qris_bloc.dart';
 import 'package:epos/presentation/setting/bloc/discount/discount_bloc.dart';
 import 'package:epos/presentation/setting/bloc/sync_order/sync_order_bloc.dart';
+import 'package:epos/presentation/setting/bloc/taxes/taxes_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -50,6 +52,9 @@ class MyApp extends StatelessWidget {
             create: (context) => SyncOrderBloc(OrderRemoteDatasource())),
         BlocProvider(
             create: (context) => DiscountBloc(DiscountRemoteDatasource())),
+        BlocProvider(
+            create: (context) =>
+                TaxesBloc(TaxRemoteDatasource(), CheckoutBloc())),
       ],
       child: MaterialApp(
         title: 'ePOS',

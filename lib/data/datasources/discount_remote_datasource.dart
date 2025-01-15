@@ -7,7 +7,6 @@ import 'package:http/http.dart' as http;
 class DiscountRemoteDatasource {
   Future<Either<String, DiscountResponseModel>> getDiscount() async {
     final url = Uri.parse('${Variables.baseUrl}/api/api-discounts');
-    // final url = Uri.parse('http://10.0.2.2:8000/api/api-discounts');
     final authData = await AuthLocalDatasource().getAuthData();
     final response = await http.get(url, headers: {
       'Authorization': 'Bearer ${authData.token}',

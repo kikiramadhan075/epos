@@ -15,4 +15,7 @@ class CheckoutEvent with _$CheckoutEvent {
   const factory CheckoutEvent.addDiscount(Discount discount) = _AddDiscount;
   //remove discount
   const factory CheckoutEvent.removeDiscount() = _RemoveDiscount;
+
+  //tax
+  const factory CheckoutEvent.setTax(double? tax) = _SetTax;
 }

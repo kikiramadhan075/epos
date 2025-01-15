@@ -1,4 +1,6 @@
 import 'package:epos/core/components/buttons.dart';
+import 'package:epos/data/datasources/auth_local_datasource.dart';
+import 'package:epos/data/datasources/tax_remote_datasource.dart';
 import 'package:epos/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:epos/presentation/home/models/order_item.dart';
 import 'package:epos/presentation/order/widgets/discount_dialog.dart';
@@ -28,6 +30,8 @@ class _OrderPageState extends State<OrderPage> {
   List<OrderItem> orders = [];
   int totalPrice = 0;
   String diskon = '';
+  String? pajak;
+  int? pajakShared;
   int calculateTotalPrice(List<OrderItem> orders) {
     return orders.fold(
         0,
@@ -57,15 +61,16 @@ class _OrderPageState extends State<OrderPage> {
         builder: (context, state) {
           return state.maybeWhen(orElse: () {
             return const Center(child: Text('Belum ada pesanan'));
-          }, success: (data, qty, total, discount) {
+          }, success: (data, qty, total, discount, tax) {
             if (data.isEmpty) {
               return const Center(
                 child: Text('Belum ada pesanan'),
               );
             }
-            // orders = data;
+            orders = data;
             totalPrice = total;
             diskon = discount?.value!.replaceAll('.00', '') ?? '0';
+            pajak = tax.toString();
             return ListView.separated(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
               itemCount: data.length,
@@ -92,6 +97,7 @@ class _OrderPageState extends State<OrderPage> {
           children: [
             Button.filled(
                 onPressed: () {
+                  if (orders.isEmpty) return;
                   showDialog(
                       barrierDismissible: false,
                       context: context,
@@ -105,7 +111,7 @@ class _OrderPageState extends State<OrderPage> {
                   orElse: () {
                     return const SizedBox.shrink();
                   },
-                  success: (data, qty, total, discount) {
+                  success: (data, qty, total, discount, tax) {
                     return ValueListenableBuilder(
                       valueListenable: indexValue,
                       builder: (context, value, _) => Row(
@@ -144,13 +150,14 @@ class _OrderPageState extends State<OrderPage> {
             ProcessButton(
               price: 0,
               onPressed: () async {
-                if (indexValue.value == 0) {
+                if (indexValue.value == 0 || orders.isEmpty) {
                 } else if (indexValue.value == 1) {
                   showDialog(
                     context: context,
                     builder: (context) => PaymentCashDialog(
                       price: totalPrice,
                       diskon: diskon,
+                      pajak: pajak ?? '',
                     ),
                   );
                 } else if (indexValue.value == 2) {

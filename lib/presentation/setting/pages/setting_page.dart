@@ -4,6 +4,7 @@ import 'package:epos/presentation/manage/pages/manage_printer_page.dart';
 import 'package:epos/presentation/setting/pages/manage_product_page.dart';
 import 'package:epos/presentation/setting/pages/save_server_key_page.dart';
 import 'package:epos/presentation/setting/pages/sync_data_page.dart';
+import 'package:epos/presentation/setting/pages/tax_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
