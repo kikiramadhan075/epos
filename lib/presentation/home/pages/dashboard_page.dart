@@ -5,6 +5,7 @@ import 'package:epos/presentation/history/pages/history_page.dart';
 import 'package:epos/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:epos/presentation/home/pages/home_page.dart';
 import 'package:epos/presentation/home/widgets/nav_item.dart';
+import 'package:epos/presentation/report/pages/report_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,6 +28,7 @@ class _DashboardPageState extends State<DashboardPage> {
     const HomePage(),
     const OrderPage(),
     const HistoryPage(),
+    const ReportPage(),
     const SettingPage(),
     // const HomePage(),
     // const OrdersPage(),
@@ -85,10 +87,16 @@ class _DashboardPageState extends State<DashboardPage> {
               onTap: () => _onItemTapped(2),
             ),
             NavItem(
-              iconPath: Assets.icons.dashboard.path,
-              label: 'Kelola',
+              iconPath: Assets.icons.report.path,
+              label: 'Report',
               isActive: _selectedIndex == 3,
               onTap: () => _onItemTapped(3),
+            ),
+            NavItem(
+              iconPath: Assets.icons.dashboard.path,
+              label: 'Kelola',
+              isActive: _selectedIndex == 4,
+              onTap: () => _onItemTapped(4),
             ),
           ],
         ),

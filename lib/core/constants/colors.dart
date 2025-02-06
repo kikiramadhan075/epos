@@ -30,4 +30,10 @@ class AppColors {
 
   /// disabled = #C8D1E1
   static const Color disabled = Color(0xffC8D1E1);
+
+   /// subtitle = #7890CD
+  static const Color subtitle = Color(0xff7890CD);
+
+  /// stroke = #EFF0F6
+  static const Color stroke = Color(0xffEFF0F6);
 }

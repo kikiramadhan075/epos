@@ -18,6 +18,9 @@ class $AssetsIconsGen {
   SvgGenImage get allCategories =>
       const SvgGenImage('assets/icons/all_categories.svg');
 
+  /// File path: assets/icons/calendar.svg
+  SvgGenImage get calendar => const SvgGenImage('assets/icons/calendar.svg');
+
   /// File path: assets/icons/cash.svg
   SvgGenImage get cash => const SvgGenImage('assets/icons/cash.svg');
 
@@ -63,12 +66,16 @@ class $AssetsIconsGen {
   /// File path: assets/icons/qr_code.svg
   SvgGenImage get qrCode => const SvgGenImage('assets/icons/qr_code.svg');
 
+  /// File path: assets/icons/report.svg
+  SvgGenImage get report => const SvgGenImage('assets/icons/report.svg');
+
   /// File path: assets/icons/snack.svg
   SvgGenImage get snack => const SvgGenImage('assets/icons/snack.svg');
 
   /// List of all assets
   List<SvgGenImage> get values => [
         allCategories,
+        calendar,
         cash,
         dashboard,
         debit,
@@ -84,6 +91,7 @@ class $AssetsIconsGen {
         payments,
         print,
         qrCode,
+        report,
         snack
       ];
 }
