@@ -12,6 +12,10 @@ import 'package:epos/presentation/home/bloc/product/product_bloc.dart';
 import 'package:epos/presentation/home/pages/dashboard_page.dart';
 import 'package:epos/presentation/order/bloc/order/order_bloc.dart';
 import 'package:epos/presentation/order/qris/bloc/qris_bloc.dart';
+import 'package:epos/presentation/report/blocs/get_order_date/get_order_date_bloc.dart';
+import 'package:epos/presentation/report/blocs/get_order_item/get_order_item_bloc.dart';
+import 'package:epos/presentation/report/blocs/order_sales/order_sales_bloc.dart';
+import 'package:epos/presentation/report/blocs/summary/summary_bloc.dart';
 import 'package:epos/presentation/setting/bloc/discount/discount_bloc.dart';
 import 'package:epos/presentation/setting/bloc/sync_order/sync_order_bloc.dart';
 import 'package:epos/presentation/setting/bloc/taxes/taxes_bloc.dart';
@@ -55,6 +59,26 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (context) =>
                 TaxesBloc(TaxRemoteDatasource(), CheckoutBloc())),
+        BlocProvider(
+          create: (context) => GetOrderDateBloc(
+            OrderRemoteDatasource(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => GetOrderItemBloc(
+            OrderRemoteDatasource(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => OrderSalesBloc(
+            OrderRemoteDatasource(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => SummaryBloc(
+            OrderRemoteDatasource(),
+          ),
+        ),
       ],
       child: MaterialApp(
         title: 'ePOS',

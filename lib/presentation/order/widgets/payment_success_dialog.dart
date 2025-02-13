@@ -5,7 +5,7 @@ import 'package:epos/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:epos/presentation/order/bloc/order/order_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:print_bluetooth_thermal/print_bluetooth_thermal.dart';
+// import 'package:print_bluetooth_thermal/print_bluetooth_thermal.dart';
 
 import '../../../core/assets/assets.gen.dart';
 import '../../../core/components/buttons.dart';
@@ -103,7 +103,7 @@ class PaymentSuccessDialog extends StatelessWidget {
                             final printValue = await EposPrint.instance
                                 .printOrder(data, qty, total, paymentType,
                                     nominal, nameKasir);
-                            await PrintBluetoothThermal.writeBytes(printValue);
+                            // await PrintBluetoothThermal.writeBytes(printValue);
                             // final result =
                             //     await PrintBluetoothThermal.writeBytes(ticket);
                           },

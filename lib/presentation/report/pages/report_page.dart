@@ -1,5 +1,11 @@
+import 'package:epos/core/extensions/build_context_ext.dart';
 import 'package:epos/core/extensions/date_time_ext.dart';
+import 'package:epos/presentation/report/pages/item_sales_report.dart';
+import 'package:epos/presentation/report/pages/product_sales_report.dart';
+import 'package:epos/presentation/report/pages/summary_report.dart';
+import 'package:epos/presentation/report/pages/transaction_report_page.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../../../core/components/custom_date_picker.dart';
 import '../../../core/components/dashed_line.dart';
 import '../../../core/components/spaces.dart';
@@ -59,53 +65,82 @@ class _ReportPageState extends State<ReportPage> {
               ),
               const SizedBox(height: 15),
 
-              // Report Menu 
+              // Report Menu
               Center(
                 child: Wrap(
                   spacing: 10.0,
                   runSpacing: 10.0,
                   children: [
-                    _buildReportMenu('Transaction Report', 1),
-                    _buildReportMenu('Item Sales Report', 4),
-                    _buildReportMenu('Daily Sales Report', 5),
-                    _buildReportMenu('Summary Sales Report', 0),
+                    _buildReportMenu('Transaction Report', 1, () {
+                      String formattedFromDate =
+                          DateFormat('yyyy-MM-dd').format(fromDate);
+                      String formattedToDate =
+                          DateFormat('yyyy-MM-dd').format(toDate);
+                      context.push(TransactionReportPage(
+                        startDate: formattedFromDate,
+                        endDate: formattedToDate,
+                      ));
+                    }),
+                    _buildReportMenu('Item Sales Report', 4, () {
+                      String formattedFromDate =
+                          DateFormat('yyyy-MM-dd').format(fromDate);
+                      String formattedToDate =
+                          DateFormat('yyyy-MM-dd').format(toDate);
+                      context.push(ItemSalesReport(
+                        startDate: formattedFromDate,
+                        endDate: formattedToDate,
+                      ));
+                    }),
+                    _buildReportMenu('Product Sales Report', 5, () {
+                      String formattedFromDate =
+                          DateFormat('yyyy-MM-dd').format(fromDate);
+                      String formattedToDate =
+                          DateFormat('yyyy-MM-dd').format(toDate);
+                      context.push(ProductSalesReport(
+                        startDate: formattedFromDate,
+                        endDate: formattedToDate,
+                      ));
+                    }),
+                    _buildReportMenu('Summary Sales Report', 0, () {
+                      String formattedFromDate =
+                          DateFormat('yyyy-MM-dd').format(fromDate);
+                      String formattedToDate =
+                          DateFormat('yyyy-MM-dd').format(toDate);
+                      context.push(SummaryReport(
+                        startDate: formattedFromDate,
+                        endDate: formattedToDate,
+                      ));
+                    }),
                   ],
                 ),
               ),
               const SizedBox(height: 20),
 
-              // Report Content
-              Center(
-                child: Column(
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w600, fontSize: 16.0),
-                    ),
-                    Text(
-                      searchDateFormatted,
-                      style: const TextStyle(fontSize: 16.0),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 16),
+              // // Report Content
+              // Center(
+              //   child: Column(
+              //     children: [
+              //       Text(
+              //         title,
+              //         style: const TextStyle(
+              //             fontWeight: FontWeight.w600, fontSize: 16.0),
+              //       ),
+              //       Text(
+              //         searchDateFormatted,
+              //         style: const TextStyle(fontSize: 16.0),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              // const SizedBox(height: 16),
 
-              // Revenue Section
-              _buildReportSection('REVENUE', [
-                _buildRowItem('Subtotal', '0'),
-                _buildRowItem('Discount', '0'),
-                _buildRowItem('Tax', '0'),
-                _buildRowItem('TOTAL', '0', isBold: true),
-              ]),
-              const SizedBox(height: 20),
+              // const SizedBox(height: 20),
 
-              // Payment Section
-              _buildReportSection('PAYMENT', [
-                _buildRowItem('Cash', '0'),
-                _buildRowItem('TOTAL', '0', isBold: true),
-              ]),
+              // // Payment Section
+              // _buildReportSection('PAYMENT', [
+              //   _buildRowItem('Cash', '0'),
+              //   _buildRowItem('TOTAL', '0', isBold: true),
+              // ]),
             ],
           ),
         ),
@@ -114,51 +149,20 @@ class _ReportPageState extends State<ReportPage> {
   }
 
   // Fungsi untuk membuat menu report dalam 2 kolom
-  Widget _buildReportMenu(String label, int menuIndex) {
+  Widget _buildReportMenu(String label, int menuIndex, Function() onTap) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width / 2 - 20, 
+      width: MediaQuery.of(context).size.width / 2 - 20,
       child: ReportMenu(
         label: label,
-        onPressed: () {
-          setState(() {
-            selectedMenu = menuIndex;
-            title = label;
-          });
-        },
-        isActive: selectedMenu == menuIndex,
-      ),
-    );
-  }
-
-  Widget _buildReportSection(String title, List<Widget> items) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
-        const SizedBox(height: 8),
-        const DashedLine(),
-        ...items,
-        const DashedLine(),
-        const SizedBox(height: 8),
-      ],
-    );
-  }
-
-  Widget _buildRowItem(String label, String value, {bool isBold = false}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            label,
-            style: TextStyle(fontWeight: isBold ? FontWeight.bold : FontWeight.normal),
-          ),
-          Text(
-            value,
-            style: TextStyle(fontWeight: isBold ? FontWeight.bold : FontWeight.normal),
-          ),
-        ],
+        // onPressed: () {
+        //   setState(() {
+        //     selectedMenu = menuIndex;
+        //     title = label;
+        //   });
+        // },
+        onPressed: onTap,
+        // isActive: selectedMenu == menuIndex,
+        isActive: false,
       ),
     );
   }

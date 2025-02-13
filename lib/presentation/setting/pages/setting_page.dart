@@ -48,7 +48,7 @@ class _SettingPageState extends State<SettingPage> {
                     iconPath: Assets.images.managePrinter.path,
                     label: 'Kelola Printer',
                     onPressed: () {
-                      context.push(const ManagePrinterPage());
+                      // context.push(const ManagePrinterPage());
                     }, //=> context.push(const ManagePrinterPage()),
                     isImage: true,
                   ),
